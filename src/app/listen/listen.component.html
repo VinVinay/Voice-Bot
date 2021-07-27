@@ -1,0 +1,62 @@
+<div class="alert alert-info mt-3">
+
+  <div class="row mb-3">
+    <div class="col btn-group">
+      <button
+        class="btn btn-primary col-6"
+        (click)="speech.startListening()"
+        [disabled]="speech.listening">
+          <img class="icon" src="/assets/images/mic-on.png">{{btnLabel}}
+      </button>
+
+      <button
+        class="btn btn-danger col-6"
+        (click)="speech.abort()"
+        [disabled]="!speech.listening">
+          <img class="icon" src="/assets/images/mic-off.png">Stop
+      </button>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="errorMsg || arrayFull">
+    <div class="col">
+      <p class="alert alert-warning">
+        <ng-template [ngIf]="errorMsg">{{errorMsg}}</ng-template>
+        <ng-template [ngIf]="arrayFull">You've already filled in all the available fields for <strong>{{arrayFull}}</strong>.</ng-template>
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  <form #MyForm="ngForm" >
+
+    <div class="form-group">
+        <label>Text field</label>
+        <input type="text" class="form-control" name="email-field" placeholder="Say Enter text field" required
+            [(ngModel)]="textField"
+            >
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Patent collections</label>
+        <select class="form-control" id="exampleFormControlSelect1" name="single-select" required
+            [(ngModel)]="patentCollections">
+            <option></option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Publication number</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  placeholder="Say Enter Publication Number" name="textarea-field" required
+            [(ngModel)]="publicationNumber"></textarea>
+    </div>
+
+    <button class="btn btn-primary" onclick="submitForm()">Submit</button>
+
+</form>

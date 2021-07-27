@@ -1,18 +1,27 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { voiceBotService } from './voiceBot.service';
+import { ListenComponent } from './listen/listen.component';
+import { SpeechService } from './speech.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListenComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    voiceBotService,
+    SpeechService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

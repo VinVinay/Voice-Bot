@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { SpeechService } from './speech.service';
+import { voiceBotService } from './voiceBot.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'clarivate-voice-assistant';
+
+  constructor(
+    public ml: voiceBotService,
+    public speech: SpeechService) {}
 }
