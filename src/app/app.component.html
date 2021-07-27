@@ -6,5 +6,15 @@
     <!-- <app-keyboard *ngIf="!speech.speechSupported"></app-keyboard> -->
   </ng-template>
 
+  <ag-grid-angular 
+    style="width: 100%; height: 200px;" 
+    class="ag-theme-balham"
+    [rowData]="rowData" 
+    [columnDefs]="columnDefs"
+    [defaultColDef]="defaultColDef"
+    [overlayNoRowsTemplate]="'No data found'"
+    [animateRows]="true">
+  </ag-grid-angular>
+
   <!-- <app-voiceBot *ngIf="ml.voiceBotReady && ml.pronoun"></app-voiceBot> -->
 </div>
