@@ -24,6 +24,13 @@ export class ListenComponent implements OnInit, OnDestroy {
   patentCollections : string;
   publicationNumber: string;
 
+ 
+ oxygenCorona = [
+  { serialNo: 1,publicationNumber: "US6290801B1", title: 'Cold seal package and method for making the same' , dwpiTitle : 'Cold seal package including two substrates sealed together by a non resealable seal'},
+   { serialNo: 2,publicationNumber: "EP3810425A1", title: ' METHODS OF FORMING CONTACT LENSES TO CONTAIN BIOACTIVE AGENTS' , dwpiTitle : 'Method for forming and/or using contact lens, involves pad printing bioactive agents to form layer, and curing layer to form portion of contact lens, and forming contact lens so that layer of agents is fixed within interior of lens'},
+   { serialNo: 3,publicationNumber: "CA2224856C", title: 'SURFACE MODIFICATION OF POLYMERS AND CARBON-BASED MATERIALS' , dwpiTitle : 'Polymeric material having a thin surface layer enriched with silicon comprises material modified chemically for gradation of layers through to unmodified material, useful for water resistant package or textile'},
+];
+
 
   constructor(public speech: SpeechService) { }
 
@@ -32,10 +39,13 @@ export class ListenComponent implements OnInit, OnDestroy {
     // this._listenNouns();
     // this._listenVerbs();
     // this._listenAdj();
+    
     this._listenErrors();
     this._listentextField();
     this._listenPublicationNumber();
     this._listenSubmit();
+    this._listenReadTheRecords();
+    this._listenStopReadRecords();
   }
 
   get btnLabel(): string {
@@ -49,6 +59,34 @@ export class ListenComponent implements OnInit, OnDestroy {
       this.textField = item.textField
     })
   }
+
+  private _listenReadTheRecords(){
+    this.speech.readTheRecords$.subscribe((item :any)=>{
+      console.log(item);
+      this._setError();
+    //  this.textField = item.textField
+      if(item){
+        this.speech.synthesizeSpeechFromText("Say Stop if you want to stop");
+        this.oxygenCorona.forEach(record=>{
+          this.speech.synthesizeSpeechFromText("Record Number " + record.serialNo + " "+ record.title);
+        })
+        // this.speech.synthesizeSpeechFromText("hello");
+        this.speech.readTheRecords$.next(false)
+      }
+   })
+ }
+
+ private _listenStopReadRecords(){
+  this.speech.stopReading$.subscribe((item :any)=>{
+    console.log(item);
+    this._setError();
+  //  this.textField = item.textField
+    if(item){
+      this.speech.stopSynthesize();
+      this.speech.stopReading$.next(false)
+    }
+ })
+}
 
   private _listenPublicationNumber(){
     this.speech.publicationNumber$.subscribe((item :any)=>{
@@ -64,6 +102,7 @@ export class ListenComponent implements OnInit, OnDestroy {
     this._setError();
     if(item){
       this.submitForm()
+      this.speech.submit$.next(false)
     }
   
  })
@@ -72,6 +111,7 @@ export class ListenComponent implements OnInit, OnDestroy {
 
  public submitForm() {
    alert("you have submiited TEXT FIELD ="+ this.textField + " PUBLICATION NUMBER = " +  this.publicationNumber);
+   this.speech.synthesizeSpeechFromText("would you like me to read the titles.. yes or no");
  }
 
   // private _listenNouns() {

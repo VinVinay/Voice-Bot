@@ -4,6 +4,7 @@ import { Subject } from 'rxjs/Subject';
 
 // TypeScript declaration for annyang
 declare var annyang: any;
+// declare var tts:any = window.speechSynthesis;
 
 @Injectable()
 export class SpeechService {
@@ -12,7 +13,8 @@ export class SpeechService {
   publicationNumber$ = new Subject<string>();
   submit$ = new BehaviorSubject(false);
   listening = false;
-
+  readTheRecords$ = new BehaviorSubject(false);
+  stopReading$ = new BehaviorSubject(false);
   constructor(private zone: NgZone) {}
 
   get speechSupported(): boolean {
@@ -31,13 +33,25 @@ export class SpeechService {
           this.publicationNumber$.next(field);
         });
       },
-      'click submit': () => {
+      'submit': () => {
         this.zone.run(() => {
           this.submit$.next(true);
         });
       },
+      'yes': () => {
+        this.zone.run(() => {
+          this.readTheRecords$.next(true);
+        });
+      },
+      'stop': () => {
+        this.zone.run(() => {
+          this.stopReading$.next(true);
+        });
+      },
+    
     };
     annyang.addCommands(commands);
+   
 
     // Log anything the user says and what speech recognition thinks it might be
     // annyang.addCallback('result', (userSaid) => {
@@ -58,6 +72,29 @@ export class SpeechService {
         'Spoken command not recognized. Say "Enter text Oxygen". OR Enter Publication Number 1234. Or Click Submit',
         { results: userSaid });
     });
+  }
+
+  public synthesizeSpeechFromText(
+		// voice: SpeechSynthesisVoice,
+		// rate: number,
+		text: string
+		) : void {
+
+		var utterance = new SpeechSynthesisUtterance( text );
+		utterance.voice = speechSynthesis.getVoices()[4];
+		utterance.rate = 1;
+
+		speechSynthesis.speak( utterance );
+
+	}
+
+  public stopSynthesize() : void {
+
+		if ( speechSynthesis.speaking ) {
+
+			speechSynthesis.cancel();
+
+		}
   }
 
   private _handleError(error, msg, errObj) {
