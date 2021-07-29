@@ -43,14 +43,13 @@ export class AppComponent implements OnInit {
     this.dataService.searchedQuery.subscribe(data => {
       console.log(data);
       this.rowData = [];
-      let fetchedResult = this.dataService.getPnByQuery(data);
+      let fetchedResult = this.dataService.searchedData = this.dataService.getPnByQuery(data);
       if(fetchedResult.length > 0) {
-        
         fetchedResult.forEach((element, index) => {
           this.rowData.push({
             serialNo: index, 
             patentNumber: element.publicationNumber,
-            patentTitle: element.dwpiTitle
+            patentTitle: element.title
           })
         });
       }

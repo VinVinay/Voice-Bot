@@ -74,7 +74,7 @@ export class ListenComponent implements OnInit, OnDestroy {
     //  this.textField = item.textField
       if(item){
         this.speech.synthesizeSpeechFromText("Say Stop if you want to stop");
-        this.oxygenCorona.forEach(record=>{
+        this.dataService.searchedData.forEach(record=>{
           this.speech.synthesizeSpeechFromText("Record Number " + record.serialNo + " "+ record.title);
         })
         // this.speech.synthesizeSpeechFromText("hello");
