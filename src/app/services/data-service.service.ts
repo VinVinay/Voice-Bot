@@ -39,6 +39,7 @@ export class DataServiceService {
   ]);
 
   public searchedQuery: any = new BehaviorSubject({text: '', pnNumber: ''});
+  public updateRowData: any = new BehaviorSubject<any>([]);
 
   constructor(private http: HttpClient) { }
 

@@ -12,7 +12,7 @@ import { ExcelService } from './excel-export.service';
 export class AppComponent implements OnInit {
 
   columnDefs = [
-    {headerName: ' ', field: 'patentCheckBox', width: 50,  cellRenderer: function(params: any) { 
+    {headerName: ' ', field: 'checked', width: 50,  cellRenderer: function(params: any) { 
       var input = document.createElement('input');
       input.type="checkbox";
       input.checked=params.value;
@@ -42,18 +42,36 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.searchedQuery.subscribe(data => {
       console.log(data);
-      this.rowData = [];
       let fetchedResult = this.dataService.searchedData = this.dataService.getPnByQuery(data);
-      if(fetchedResult.length > 0) {
-        fetchedResult.forEach((element, index) => {
-          this.rowData.push({
-            serialNo: index, 
-            patentNumber: element.publicationNumber,
-            patentTitle: element.title
-          })
-        });
+      this.addDataToRow(fetchedResult);
+    })
+
+    this.dataService.updateRowData.subscribe(data=>{
+      this.addDataToRow(data);
+    })
+
+    this.speech.clickOnExport$.subscribe(data=>{
+      if(data){
+        this.export();
+        this.speech.clickOnExport$.next(false);
       }
     })
+  }
+
+
+
+  public addDataToRow(data:any) {
+    if(data.length) {
+      this.rowData = [];
+      data.forEach((element, index) => {
+        this.rowData.push({
+          checked : element.checked,
+          serialNo: index + 1, 
+          patentNumber: element.publicationNumber,
+          patentTitle: element.title
+        })
+      });
+    }
   }
 
   public export() {
