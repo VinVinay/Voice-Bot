@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DataServiceService } from './services/data-service.service';
 import { SpeechService } from './speech.service';
 import { voiceBotService } from './voiceBot.service';
 
@@ -7,9 +8,8 @@ import { voiceBotService } from './voiceBot.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  rowIndex: number = 0;
   columnDefs = [
     {headerName: ' ', field: 'patentCheckBox', width: 50,  cellRenderer: function(params: any) { 
       var input = document.createElement('input');
@@ -28,13 +28,31 @@ export class AppComponent {
   defaultColDef = {
     sortable: true,
   };
-  rowData = [
-      {serialNo: this.rowIndex++, patentNumber: 'JP05144996B2', patentTitle: 'The manufacturing method of the photosensitive The manufacturing method of the photosensitive The manufacturing method of the photosensitive The manufacturing method of the photosensitive'},
-      {serialNo: this.rowIndex++, patentNumber: 'EP1493783A1', patentTitle: 'Pigment dispersant for non-aqueous solvent, ink '},
-      {serialNo: this.rowIndex++, patentNumber: 'CN101144992A', patentTitle: 'Oil-based ink comparticles, specific polys solvent'}
-  ];
+  rowData = [];
+
+  public fetchedResult: any = [];
 
   constructor(
+    private dataService: DataServiceService,
     public ml: voiceBotService,
     public speech: SpeechService) {}
+
+  ngOnInit(): void {
+    this.dataService.searchedQuery.subscribe(data => {
+      console.log(data);
+      this.rowData = [];
+      let fetchedResult = this.dataService.getPnByQuery(data);
+      if(fetchedResult.length > 0) {
+        
+        fetchedResult.forEach((element, index) => {
+          this.rowData.push({
+            serialNo: index, 
+            patentNumber: element.publicationNumber,
+            patentTitle: element.dwpiTitle
+          })
+        });
+      }
+    })
+  }
+
 }

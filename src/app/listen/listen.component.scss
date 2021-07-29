@@ -3,3 +3,26 @@
   margin-right: 6px;
   vertical-align: middle;
 }
+.filter-select {
+  width: 95%;
+  list-style: none;
+  color: rgb(105, 105, 105);
+  border: 1px solid #ccc;
+  border-top: none;
+  /*so things don't jump around*/
+  position: absolute;
+  top: calc(47% + 1px);
+  height: 200px;
+  background: #fff;
+  overflow-y: auto;
+}
+.filter-select-list {
+  cursor: pointer;
+}
+.artist-name {
+  display: inline-block;
+}
+.filter-select-list:hover {
+  background:  #C0C0C0;
+  color: #fff
+}

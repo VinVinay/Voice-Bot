@@ -1,9 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter, Input } from '@angular/core';
 import { Words } from './../words';
 import { SpeechService } from './../speech.service';
 import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
+import { DataServiceService } from 'app/services/data-service.service';
 
 @Component({
   selector: 'app-listen',
@@ -11,6 +12,10 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./listen.component.scss']
 })
 export class ListenComponent implements OnInit, OnDestroy {
+
+  
+  @Output() searchedData: EventEmitter<any> = new EventEmitter();
+
   nouns: string[] = new Words().array;
   verbs: string[] = new Words().array;
   adjs: string[] = new Words().array;
@@ -20,9 +25,10 @@ export class ListenComponent implements OnInit, OnDestroy {
   arrayFull: string;
   errorsSub: Subscription;
   errorMsg: string;
-  textField: string;
+  textField: string = '';
   patentCollections : string;
-  publicationNumber: string;
+  publicationNumber: string = '';
+  public suggestedData: string = '';
 
  
  oxygenCorona = [
@@ -32,7 +38,7 @@ export class ListenComponent implements OnInit, OnDestroy {
 ];
 
 
-  constructor(public speech: SpeechService) { }
+  constructor(private dataService: DataServiceService, public speech: SpeechService) { }
 
   ngOnInit() {
     this.speech.init();
@@ -56,7 +62,8 @@ export class ListenComponent implements OnInit, OnDestroy {
      this.speech.textField$.subscribe((item :any)=>{
        console.log(item)
        this._setError();
-      this.textField = item.textField
+      this.textField = item.textField;
+      this.suggestedData = this.dataService.getPnBySearch(this.textField);
     })
   }
 
@@ -110,8 +117,9 @@ export class ListenComponent implements OnInit, OnDestroy {
 
 
  public submitForm() {
-   alert("you have submiited TEXT FIELD ="+ this.textField + " PUBLICATION NUMBER = " +  this.publicationNumber);
-   this.speech.synthesizeSpeechFromText("would you like me to read the titles.. yes or no");
+   //alert("you have submiited TEXT FIELD ="+ this.textField + " PUBLICATION NUMBER = " +  this.publicationNumber);
+  this.speech.synthesizeSpeechFromText("would you like me to read the titles.. yes or no");
+  this.dataService.searchedQuery.next({text: this.textField, pnNumber: this.publicationNumber});
  }
 
   // private _listenNouns() {
@@ -146,4 +154,13 @@ export class ListenComponent implements OnInit, OnDestroy {
     this.errorsSub.unsubscribe();
   }
 
+  getSuggestions() {
+    this.suggestedData = this.dataService.getPnBySearch(this.textField);
+  }
+
+  selectedQuery(data: any) {
+    this.textField = data;
+    this.dataService.searchedQuery.next({text: data, pnNumber: this.publicationNumber});
+    this.suggestedData = '';
+  }
 }
