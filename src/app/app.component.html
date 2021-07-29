@@ -17,6 +17,6 @@
       [animateRows]="true">
     </ag-grid-angular>
   </div>
-
+  <button  *ngIf="rowData.length > 0" class="btn btn-primary" style= "margin-left: 45%;" (click)="export()">Export</button>
   <!-- <app-voiceBot *ngIf="ml.voiceBotReady && ml.pronoun"></app-voiceBot> -->
 </div>
