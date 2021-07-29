@@ -95,19 +95,19 @@ export const oxygenHuman = [
   
   export const roboAgri = [
     { serialNo: 1,publicationNumber: 'CN108182098A', title: 'SReception language selection method, system and reception robot' , dwpiTitle : 'Method for selecting reception language of service robot, involves judging whether user speech is received or not, and identifying user classification if user speech is received, and selecting user language according to user classification'},
-     { serialNo: 2,publicationNumber: 'CN205552570U', title: 'Industrial robot welds galianconism' , dwpiTitle : 'Industrial robot welding short arm, has machinery arm whose lower end is connected with transverse plate, welding strip mutually connected with positive upper part of wire box, and machine arm provided with protection plate'},
+     { serialNo: 2,publicationNumber: 'CN205552570U', title: 'Industrial robot welds galianconism', dwpiTitle : 'Industrial robot welding short arm, has machinery arm whose lower end is connected with transverse plate, welding strip mutually connected with positive upper part of wire box, and machine arm provided with protection plate'},
      { serialNo: 3,publicationNumber: 'CN205592320U', title: 'Intelligence flying robot vibration damper' , dwpiTitle : 'Intelligent flying robot vibration damping device, has bearing seat whose lower end is connected with step screw thread, and sleeve bearing transverse pipe whose left end is connected with connecting plate and screw thread regulating sleeve'},
   ];
   
   export const roboEdu = [
     { serialNo: 1,publicationNumber: 'WO2016013927A1', title: 'A TRANSFORMATIVE ROBOTICS EDUCATION SYSTEM FOR IMPROVING CREATIVITY AMONG PARTICIPANTS' , dwpiTitle : 'Transformative robotics education system for facilitating creativity of participant, has first framework with application of principle of constructivism in assembling robot from robotic kit is initiated to explore constructive material'},
-     { serialNo: 2,publicationNumber: 'CN2933745Y', title: 'Stair climbing robot' , dwpiTitle : 'Ladder climbing robot has stander, driving mechanism, transmission mechanism, enclasping mechanism, creeping mechanism and control mechanism, where stander is equipped with DC electric motor and gear box, thus provides flexible operation'},
+     { serialNo: 2,publicationNumber: 'CN2933745Y', title: 'Stair climbing robot', dwpiTitle : 'Ladder climbing robot has stander, driving mechanism, transmission mechanism, enclasping mechanism, creeping mechanism and control mechanism, where stander is equipped with DC electric motor and gear box, thus provides flexible operation'},
      { serialNo: 3,publicationNumber: 'CN2936623Y', title: 'Driving mechanism and driving mechanism of crawling robot' , dwpiTitle : 'Drive mechanism and transmission mechanism of climbing robot'},
   ];
   
   export const roboAI = [
-    { serialNo: 1,publicationNumber: 'US20200126302A1', title: 'Augmented Reality Platform and Method' , dwpiTitle : 'System for providing complete global mobility, operation and execution, has augmented reality-mixed reality unit for creating live digital twins referred to as hologram projections of all available physical assets including humans'},
-     { serialNo: 2,publicationNumber: 'FR3052084A1', title: 'SYSTEME POUR LE CONTROLE DE L EVOLUTION D ENGINS TELECOMMANDES' , dwpiTitle : 'Movement control system for remote-controlled vehicle e.g. drone, in public place, has computer for calculating flight parameters, and transmission unit for transmitting flight parameters to corresponding remote-controlled vehicle'},
+    { serialNo: 1,publicationNumber: 'US20200126302A1', title: 'Augmented Reality Platform and Method', dwpiTitle : 'System for providing complete global mobility, operation and execution, has augmented reality-mixed reality unit for creating live digital twins referred to as hologram projections of all available physical assets including humans'},
+     { serialNo: 2,publicationNumber: 'FR3052084A1', title: 'SYSTEME POUR LE CONTROLE DE L EVOLUTION D ENGINS TELECOMMANDES', dwpiTitle : 'Movement control system for remote-controlled vehicle e.g. drone, in public place, has computer for calculating flight parameters, and transmission unit for transmitting flight parameters to corresponding remote-controlled vehicle'},
      { serialNo: 3,publicationNumber: 'UA84254C2', title: '	THE MINIMAL PLASMID-BASED SYSTEM FOR GENERATION OF INFECTIOUS NEGATIVE STRANDED RNA OF VIRUSES FROM THE CLONED VIRUS cDNA, THE HOST CELL, CONTAINING THE PLASMID-BASED SYSTEM, THE METHOD FOR PRODUCTION OF INFECTIOUS NEGATIVE STRANDED RNA OF VIRUS AND THE METHOD FOR VACCINATION OF A PERSON AGAINST INFECTION OF NEGATIVE STRANDED RNA VIRUS' , dwpiTitle : '-'},
   ];
   

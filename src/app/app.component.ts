@@ -11,7 +11,7 @@ import { voiceBotService } from './voiceBot.service';
 export class AppComponent implements OnInit {
 
   columnDefs = [
-    {headerName: ' ', field: 'patentCheckBox', width: 50,  cellRenderer: function(params: any) { 
+    {headerName: ' ', field: 'patentCheckBox', width: 40,  cellRenderer: function(params: any) { 
       var input = document.createElement('input');
       input.type="checkbox";
       input.checked=params.value;
@@ -21,9 +21,8 @@ export class AppComponent implements OnInit {
       });
       return input;
   }},
-    {headerName: 'Sl. No.', field: 'serialNo', width: 60},
     {headerName: 'Patent Number', field: 'patentNumber', width: 200},
-    {headerName: 'Title', field: 'patentTitle', wrapText: true, width: 780, autoHeight: true,}
+    {headerName: 'Title', field: 'patentTitle', wrapText: true, width: 680, autoHeight: true,}
   ];
   defaultColDef = {
     sortable: true,
