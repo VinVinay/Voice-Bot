@@ -8,6 +8,8 @@ import { voiceBotService } from './voiceBot.service';
 import { ListenComponent } from './listen/listen.component';
 import { SpeechService } from './speech.service';
 import { AgGridModule } from 'ag-grid-angular';
+import { ExcelService } from './excel-export.service';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { AgGridModule } from 'ag-grid-angular';
   ],
   providers: [
     voiceBotService,
-    SpeechService
+    SpeechService,
+    ExcelService,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })
