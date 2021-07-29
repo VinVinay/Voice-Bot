@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { voiceBotService } from './voiceBot.service';
 import { ListenComponent } from './listen/listen.component';
 import { SpeechService } from './speech.service';
+import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SpeechService } from './speech.service';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AgGridModule.withComponents([])
   ],
   providers: [
     voiceBotService,

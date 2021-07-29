@@ -2,9 +2,21 @@
   <h1 class="text-center">voiceBot</h1>
 
   <ng-template [ngIf]="!ml.voiceBotReady || !ml.pronoun">
-    <app-listen *ngIf="speech.speechSupported"></app-listen>
+    <app-listen *ngIf="speech.speechSupported" ></app-listen>
     <!-- <app-keyboard *ngIf="!speech.speechSupported"></app-keyboard> -->
   </ng-template>
+
+  <div *ngIf="rowData.length > 0">
+    <ag-grid-angular
+      style="width: 100%; height: 200px;" 
+      class="ag-theme-balham"
+      [rowData]="rowData" 
+      [columnDefs]="columnDefs"
+      [defaultColDef]="defaultColDef"
+      [overlayNoRowsTemplate]="'No data found'"
+      [animateRows]="true">
+    </ag-grid-angular>
+  </div>
 
   <!-- <app-voiceBot *ngIf="ml.voiceBotReady && ml.pronoun"></app-voiceBot> -->
 </div>
