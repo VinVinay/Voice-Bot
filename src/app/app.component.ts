@@ -22,7 +22,8 @@ export class AppComponent implements OnInit {
       return input;
   }},
     {headerName: 'Patent Number', field: 'patentNumber', width: 200},
-    {headerName: 'Title', field: 'patentTitle', wrapText: true, width: 680, autoHeight: true,}
+    {headerName: 'Title', field: 'patentTitle', wrapText: true, width: 300, autoHeight: true },
+    {headerName: 'DWPI Title', field: 'dwpiTitle', wrapText: true, width: 550, autoHeight: true }
   ];
   defaultColDef = {
     sortable: true,
@@ -47,7 +48,8 @@ export class AppComponent implements OnInit {
           this.rowData.push({
             serialNo: index, 
             patentNumber: element.publicationNumber,
-            patentTitle: element.dwpiTitle
+            patentTitle: element.title,
+            dwpiTitle: element.dwpiTitle
           })
         });
       }
