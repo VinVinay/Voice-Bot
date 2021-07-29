@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from './services/data-service.service';
 import { SpeechService } from './speech.service';
 import { voiceBotService } from './voiceBot.service';
+import { ExcelService } from './excel-export.service';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +24,7 @@ export class AppComponent implements OnInit {
   }},
     {headerName: 'Patent Number', field: 'patentNumber', width: 200},
     {headerName: 'Title', field: 'patentTitle', wrapText: true, width: 300, autoHeight: true },
-    {headerName: 'DWPI Title', field: 'dwpiTitle', wrapText: true, width: 550, autoHeight: true }
+    {headerName: 'DWPI Title', field: 'dwpiTitle', wrapText: true, width: 540, autoHeight: true }
   ];
   defaultColDef = {
     sortable: true,
@@ -34,6 +35,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     private dataService: DataServiceService,
+    private excelService: ExcelService,
     public ml: voiceBotService,
     public speech: SpeechService) {}
 
@@ -41,9 +43,8 @@ export class AppComponent implements OnInit {
     this.dataService.searchedQuery.subscribe(data => {
       console.log(data);
       this.rowData = [];
-      let fetchedResult = this.dataService.getPnByQuery(data);
+      let fetchedResult = this.dataService.searchedData = this.dataService.getPnByQuery(data);
       if(fetchedResult.length > 0) {
-        
         fetchedResult.forEach((element, index) => {
           this.rowData.push({
             serialNo: index, 
@@ -56,4 +57,10 @@ export class AppComponent implements OnInit {
     })
   }
 
-}
+  public export() {
+    //alert("you have submiited TEXT FIELD ="+ this.textField + " PUBLICATION NUMBER = " +  this.publicationNumber);
+    this.excelService.generateExcel(
+      this.rowData
+    );
+  }
+  }

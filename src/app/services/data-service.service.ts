@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { oxygen, oxygenAtmosphere, oxygenCorona, oxygenHuman, oxygenMachine, oxygenPlants, roboAgri, roboAI, roboEdu, robohealth, roboHotel, robotics, virtualReality, vrEducation, vrGaming, vrHealthcare, vrMovies, vrMultiMedia } from 'app/mock-data/mock-data';
+import { oxygen,covid,machineLearning,fiveG, oxygenAtmosphere, oxygenCorona, oxygenHuman, oxygenMachine, oxygenPlants, roboAgri, roboAI, roboEdu, robohealth, roboHotel, robotics, virtualReality, vrEducation, vrGaming, vrHealthcare, vrMovies, vrMultiMedia } from 'app/mock-data/mock-data';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataServiceService {
-
+  public searchedData = [];
   map: any = new Map([
     ['oxyg', oxygen],
     ['virt', virtualReality],
@@ -15,6 +15,10 @@ export class DataServiceService {
   ]);
 
   resultMap: any = new Map([
+    ['covid', covid],
+    ['machine learning', machineLearning],
+    ['technology', fiveG],
+
     ['oxygen human', oxygenHuman],
     ['oxygen corona', oxygenCorona],
     ['oxygen plants', oxygenPlants],
