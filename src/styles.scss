@@ -44,13 +44,21 @@ html, body {
 
 .toast-listen-bar {
   font-family: 'Source Sans Pro', sans-serif;
-  background: #c42e00;
+  background: $variable;
   color: #ffffff;
   max-width: 50vw !important;
   min-width: 775px !important;
   padding: 0px !important;
+  top:0;
 
   .mat-button-wrapper {
     color: #ffffff;
   }
+
+ 
+}
+
+.mat-snack-bar-container{
+  position: absolute !important;
+  left:25%;
 }

@@ -114,7 +114,7 @@ export class SpeechService {
     annyang.addCallback('resultNoMatch', (userSaid) => {
       this._handleError(
         'no match',
-        'Spoken command not recognized. Say "Enter text Covid". OR Enter Publication Number 1234 and Say Search',
+        'Spoken command not recognized. Say "Enter text Covid". OR "Enter Publication Number 1234". OR "Search" OR "Select Record 1" OR "Export"',
         { results: userSaid });
     });
   }
