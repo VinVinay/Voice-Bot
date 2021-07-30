@@ -66,7 +66,6 @@ export class SpeechService {
         });
       },
       'select record (number) :field' : (field) => {
-        debugger
         var inputNumber = isNaN(Number(field)) ? this.numbers[field] : Number(field);
         if(inputNumber>0){
         this.zone.run(() => {
@@ -75,7 +74,6 @@ export class SpeechService {
       }
       },
       'deselect record (number) :field' : (field) => {
-        debugger
         var inputNumber = isNaN(Number(field)) ? this.numbers[field] : Number(field);
         if(inputNumber>0){
         this.zone.run(() => {

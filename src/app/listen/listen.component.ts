@@ -70,7 +70,6 @@ export class ListenComponent implements OnInit, OnDestroy {
 
   private _listenSelectRecord(){
     this.speech.selectRecord$.subscribe((item :any)=>{
-      debugger
       if(item.recordNumber > 0) {
         this.dataService.searchedData.forEach(record=>{
           if(record.serialNo === item.recordNumber){
