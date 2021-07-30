@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
   }},
     {headerName: 'Patent Number', field: 'patentNumber', width: 200},
     {headerName: 'Title', field: 'patentTitle', wrapText: true, width: 300, autoHeight: true },
-    {headerName: 'DWPI Title', field: 'dwpiTitle', wrapText: true, width: 550, autoHeight: true }
+    {headerName: 'DWPI Title', field: 'dwpiTitle', wrapText: true, width: 540, autoHeight: true }
   ];
   defaultColDef = {
     sortable: true,
