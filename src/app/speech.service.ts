@@ -19,6 +19,7 @@ export class SpeechService {
   stopReading$ = new BehaviorSubject(false);
   selectRecord$ = new BehaviorSubject({recordNumber:0,checkedValue:false});
   clickOnExport$  = new BehaviorSubject(false);
+  voice = speechSynthesis.getVoices()[4];
 
   numbers = {
     one : 1,
@@ -72,7 +73,7 @@ export class SpeechService {
           this.stopReading$.next(true);
         });
       },
-      'select record (number) :field' : (field) => {
+      'select record (number) *field' : (field) => {
         var inputNumber = isNaN(Number(field)) ? this.numbers[field] : Number(field);
         if(inputNumber>0){
         this.zone.run(() => {
@@ -80,7 +81,7 @@ export class SpeechService {
         });
       }
       },
-      'deselect record (number) :field' : (field) => {
+      'deselect record (number) *field' : (field) => {
         var inputNumber = isNaN(Number(field)) ? this.numbers[field] : Number(field);
         if(inputNumber>0){
         this.zone.run(() => {
@@ -126,7 +127,7 @@ export class SpeechService {
 		) : void {
 
 		var utterance = new SpeechSynthesisUtterance( text );
-		utterance.voice = speechSynthesis.getVoices()[4];
+		utterance.voice = this.voice;
 		utterance.rate = 1;
 
 		speechSynthesis.speak( utterance );
