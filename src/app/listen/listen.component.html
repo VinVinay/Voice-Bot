@@ -40,7 +40,7 @@
           [(ngModel)]="textField" (ngModelChange)="getSuggestions()" autocomplete="off">
       <div *ngIf="suggestedData.length">
         <ul class="filter-select">
-          <li class="filter-select-list" *ngFor="let data of suggestedData" (click)="selectedQuery(data)"><p class="artist-name">{{ data }}</p>
+          <li class="filter-select-list" *ngFor="let data of suggestedData" (click)="selectedQuery(data)"><span class="artist-name">{{ data }}</span>
         </ul>
       </div>
   </div>

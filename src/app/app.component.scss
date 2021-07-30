@@ -101,13 +101,27 @@ $headercolor: rgb(29, 29, 29);
     font-weight: 600;
   }
 
-::ng-deep .ag-theme-material.ag-full-width-row.ag-cell-wrapper.ag-row-group {
-    padding: 5px auto;
-    border: 5px solid black;
-}
-.ag-theme-material .ag-full-width-row .ag-cell-wrapper.ag-row-group::nth-child {
-    border: 5px solid black;
-}
+  ::ng-deep .patent-checkbox {
+    display: flex;
+    justify-content: center;
+    left: 0px;
+    padding: 15px 5px 0 5px !important;
+    
+    input {
+        height: 18px;
+        width: 18px;
+        background-color: #5e33bf;
+        transition: background-color .4s cubic-bezier(.25,.8,.25,1), box-shadow 280ms cubic-bezier(.4,0,.2,1)
+        // :checked {
+        //     background-color: #9691a1 !important;
+        //     color: #99a1a7;
+        // }
+    }
+    input:checked:after {
+        background-color: #9691a1 !important;
+        color: #99a1a7;
+    }
+  }
 
 
 
