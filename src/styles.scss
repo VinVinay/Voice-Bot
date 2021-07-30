@@ -41,3 +41,16 @@ html, body {
   color: #fff;
   transform: translateY(-0.5px);
 }
+
+.toast-listen-bar {
+  font-family: 'Source Sans Pro', sans-serif;
+  background: #c42e00;
+  color: #ffffff;
+  max-width: 50vw !important;
+  min-width: 775px !important;
+  padding: 0px !important;
+
+  .mat-button-wrapper {
+    color: #ffffff;
+  }
+}

@@ -10,6 +10,10 @@ import { SpeechService } from './speech.service';
 import { AgGridModule } from 'ag-grid-angular';
 import { ExcelService } from './excel-export.service';
 import { DatePipe } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  MatSnackBarModule,
+} from '@angular/material';
 import { ExportCheckBoxComponent } from './components/export-checkbox';
 
 @NgModule({
@@ -19,9 +23,11 @@ import { ExportCheckBoxComponent } from './components/export-checkbox';
     ExportCheckBoxComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    MatSnackBarModule,
     AgGridModule.withComponents([])
   ],
   providers: [

@@ -5,6 +5,8 @@ import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import { DataServiceService } from 'app/services/data-service.service';
+import { ListenToastComponent } from 'app/listen-toast/listentoast.component';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-listen',
@@ -24,7 +26,6 @@ export class ListenComponent implements OnInit, OnDestroy {
   adjSub: Subscription;
   arrayFull: string;
   errorsSub: Subscription;
-  errorMsg: string;
   textField: string = '';
   dwpiField:string = '';
   patentCollections : string;
@@ -38,7 +39,7 @@ export class ListenComponent implements OnInit, OnDestroy {
 ];
 
 
-  constructor(private dataService: DataServiceService, public speech: SpeechService) { }
+  constructor(private dataService: DataServiceService, public speech: SpeechService,public snackBar: MatSnackBar,) { }
 
   ngOnInit() {
     this.speech.init();
@@ -168,9 +169,16 @@ export class ListenComponent implements OnInit, OnDestroy {
   private _setError(err?: any) {
     if (err) {
       console.log('Speech Recognition:', err);
-      this.errorMsg = err.message;
+      this.dataService.errorMsg = err.message;
+      if(err.error === 'no match'){
+        this.snackBar.openFromComponent(ListenToastComponent, {
+          verticalPosition: 'top',
+          panelClass: 'toast-listen-bar',
+          data: {}
+        });
+      }
     } else {
-      this.errorMsg = null;
+      this.dataService.errorMsg = null;
     }
   }
 
