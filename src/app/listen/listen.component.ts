@@ -39,10 +39,10 @@ export class ListenComponent implements OnInit, OnDestroy {
 ];
 
 
-  constructor(private dataService: DataServiceService, public speech: SpeechService,public snackBar: MatSnackBar,) { }
+  constructor(private dataService: DataServiceService, public speech: SpeechService,public snackBar: MatSnackBar,) {
+   }
 
   ngOnInit() {
-    this.speech.synthesizeSpeechFromText("Welcome to Clarivate's Voice Assistant");
     this.speech.init();
     this._listenErrors();
     this._listentextField();
@@ -129,7 +129,7 @@ export class ListenComponent implements OnInit, OnDestroy {
   this.speech.submit$.subscribe((item :any)=>{
     console.log(item)
     this._setError();
-    if(item){
+    if(item ){
       this.submitForm()
       this.speech.submit$.next(false)
     }
@@ -140,8 +140,10 @@ export class ListenComponent implements OnInit, OnDestroy {
 
  public submitForm() {
    //alert("you have submiited TEXT FIELD ="+ this.textField + " PUBLICATION NUMBER = " +  this.publicationNumber);
+if( this.textField){
   this.speech.synthesizeSpeechFromText("would you like me to read the titles.. yes or no");
   this.dataService.searchedQuery.next({text: this.textField, pnNumber: this.publicationNumber});
+}
  }
 
   private _listenErrors() {

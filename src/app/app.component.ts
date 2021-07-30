@@ -30,7 +30,9 @@ export class AppComponent implements OnInit {
     private dataService: DataServiceService,
     private excelService: ExcelService,
     public ml: voiceBotService,
-    public speech: SpeechService) {}
+    public speech: SpeechService) {
+      // this.speech.synthesizeSpeechFromText("Welcome to Clarivate's Voice Assistant");
+    }
 
   ngOnInit(): void {
     this.dataService.searchedQuery.subscribe(data => {
