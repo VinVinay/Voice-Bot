@@ -8,6 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class DataServiceService {
   public searchedData = [];
+  errorMsg: string;
   map: any = new Map([
     ['oxyg', oxygen],
     ['virt', virtualReality],
@@ -15,6 +16,7 @@ export class DataServiceService {
   ]);
 
   resultMap: any = new Map([
+    ['1234', oxygenMachine],
     ['covid', covid],
     ['machine learning', machineLearning],
     ['technology', fiveG],
