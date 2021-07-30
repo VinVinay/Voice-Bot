@@ -101,6 +101,14 @@ $headercolor: rgb(29, 29, 29);
     font-weight: 600;
   }
 
+::ng-deep .ag-theme-material.ag-full-width-row.ag-cell-wrapper.ag-row-group {
+    padding: 5px auto;
+    border: 5px solid black;
+}
+.ag-theme-material .ag-full-width-row .ag-cell-wrapper.ag-row-group::nth-child {
+    border: 5px solid black;
+}
+
 
 
   
