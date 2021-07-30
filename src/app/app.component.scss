@@ -1,5 +1,5 @@
 $variable: #5e33bf;
-$headercolor: rgb(29, 29, 29);
+$headercolor: #282828;
 $whiteshade: #Fdfcfa;
 
 ::ng-deep .ag-theme-material .ag-cell, .ag-theme-material .ag-full-width-row .ag-cell-wrapper.ag-row-group {
@@ -66,7 +66,7 @@ $whiteshade: #Fdfcfa;
 }
 
 .footer  {
-    top: 10px;
+    top: 0;
     width: 100%;
     bottom: 0px;
     left: 0;
@@ -100,7 +100,6 @@ $whiteshade: #Fdfcfa;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
     color: white;
     font-weight: 600;
-    position: fixed;
     z-index: 10;
 
     .logo{
