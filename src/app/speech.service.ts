@@ -12,6 +12,7 @@ export class SpeechService {
   errors$ = new Subject<{[key: string]: any}>();
   textField$ = new Subject<{[key: string]: any}>();
   publicationNumber$ = new Subject<string>();
+  dwpiNumber$ = new BehaviorSubject('');
   submit$ = new BehaviorSubject(false);
   listening = false;
   readTheRecords$ = new BehaviorSubject(false);
@@ -48,6 +49,12 @@ export class SpeechService {
       'enter publication (number) *field': (field) => {
         this.zone.run(() => {
           this.publicationNumber$.next(field);
+        });
+      },
+      'enter custom (field) *field': (field) => {
+        debugger
+        this.zone.run(() => {
+          this.dwpiNumber$.next(field);
         });
       },
       'search': () => {

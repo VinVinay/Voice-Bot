@@ -44,22 +44,17 @@
         </ul>
       </div>
   </div>
-    <div class="form-group">
-      <label for="exampleFormControlSelect1">Patent collections</label>
-      <select class="form-control" id="exampleFormControlSelect1" name="single-select" required
-          [(ngModel)]="patentCollections">
-          <option></option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-      </select>
-    </div>
-    <div class="form-group">
-        <label for="exampleFormControlTextarea1">Publication number</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  placeholder="Say Enter Publication Number" name="textarea-field" required
-            [(ngModel)]="publicationNumber"></textarea>
-    </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Publication number</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  placeholder="Say Enter Publication Number" name="textarea-field" required
+        [(ngModel)]="publicationNumber"></textarea>
+</div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea2">Custom Field</label>
+    <textarea class="form-control" id="exampleFormControlTextarea2" rows="3"  placeholder="Say Enter Custom Field" name="textarea-field2" required
+        [(ngModel)]="dwpiField"></textarea>
+  </div>
+   
 
     <button class="button search" (click)="submitForm()">Search</button>
 

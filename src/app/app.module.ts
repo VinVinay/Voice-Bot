@@ -14,11 +14,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatSnackBarModule,
 } from '@angular/material';
+import { ExportCheckBoxComponent } from './components/export-checkbox';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListenComponent
+    ListenComponent,
+    ExportCheckBoxComponent
   ],
   imports: [
     BrowserAnimationsModule,

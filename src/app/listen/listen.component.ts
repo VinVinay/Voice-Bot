@@ -27,6 +27,7 @@ export class ListenComponent implements OnInit, OnDestroy {
   arrayFull: string;
   errorsSub: Subscription;
   textField: string = '';
+  dwpiField:string = '';
   patentCollections : string;
   publicationNumber: string = '';
   public suggestedData: string = '';
@@ -48,6 +49,7 @@ export class ListenComponent implements OnInit, OnDestroy {
     
     this._listenErrors();
     this._listentextField();
+    this._listenDWPIField();
     this._listenPublicationNumber();
     this._listenSubmit();
     this._listenReadTheRecords();
@@ -68,6 +70,14 @@ export class ListenComponent implements OnInit, OnDestroy {
       this.suggestedData = this.dataService.getPnBySearch(this.textField);
     })
   }
+
+  private _listenDWPIField(){
+    this.speech.dwpiNumber$.subscribe((item :any)=>{
+      console.log(item)
+      this._setError();
+     this.dwpiField = item;
+   })
+ }
 
   private _listenSelectRecord(){
     this.speech.selectRecord$.subscribe((item :any)=>{

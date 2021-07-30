@@ -3,14 +3,14 @@
     <img fxLayoutAlign="start center" src="assets/images/clarivate-logo-header.svg" alt="logo" class="logo" width="130" height="13" />
   </div>
   <div class="container">
-    <h1 class="text-center appName">Clarivate's Voice</h1>
+    <h1 class="text-center appName">Clarivate's Voice Assistant</h1>
 
     <ng-template [ngIf]="!ml.voiceBotReady || !ml.pronoun">
       <app-listen *ngIf="speech.speechSupported" ></app-listen>
       <!-- <app-keyboard *ngIf="!speech.speechSupported"></app-keyboard> -->
     </ng-template>
 
-    <div>
+    <div class="grid">
       <ag-grid-angular *ngIf="loader === false && rowData.length"
         class="ag-theme-material ag-grid-box"
         [rowData]="rowData" 
@@ -25,7 +25,7 @@
     </div>
     
 
-    <button  *ngIf="rowData.length > 0 && loader === false" class="button" style= "margin-left: 45%; margin-bottom: 50px;" 
+    <button  *ngIf="rowData.length > 0 && loader === false" class="button" style= "margin-left: 45%; " 
       (click)="export()">Export</button>
     <!-- <app-voiceBot *ngIf="ml.voiceBotReady && ml.pronoun"></app-voiceBot> -->
   </div>
