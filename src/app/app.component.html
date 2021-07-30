@@ -34,7 +34,6 @@
     <button class="recorder" (click)="toggleClick($event)" [ngStyle]="{'background-color': speech.listening === true ? 'red' : '#5e33bf'}">
       <i class="bi bi-mic-fill" *ngIf="speech.listening" ></i>
       <i class="bi bi-mic-mute-fill"  *ngIf="!speech.listening" ></i>
-      {{ !speech.listening ? 'Speak to search' : 'stop search' }}
     </button>
   </div>
 

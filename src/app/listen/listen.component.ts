@@ -157,7 +157,7 @@ if( this.textField){
       this.dataService.errorMsg = err.message;
       if(err.error === 'no match'){
         this.snackBar.openFromComponent(ListenToastComponent, {
-          duration: 10 * 1000,
+          duration: 5 * 1000,
           verticalPosition: 'bottom',
           panelClass: 'toast-listen-bar',
           data: {}
