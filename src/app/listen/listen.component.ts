@@ -30,7 +30,6 @@ export class ListenComponent implements OnInit, OnDestroy {
   publicationNumber: string = '';
   public suggestedData: string = '';
 
- 
  oxygenCorona = [
   { serialNo: 1,publicationNumber: "US6290801B1", title: 'Cold seal package and method for making the same' , dwpiTitle : 'Cold seal package including two substrates sealed together by a non resealable seal'},
    { serialNo: 2,publicationNumber: "EP3810425A1", title: ' METHODS OF FORMING CONTACT LENSES TO CONTAIN BIOACTIVE AGENTS' , dwpiTitle : 'Method for forming and/or using contact lens, involves pad printing bioactive agents to form layer, and curing layer to form portion of contact lens, and forming contact lens so that layer of agents is fixed within interior of lens'},
@@ -52,6 +51,8 @@ export class ListenComponent implements OnInit, OnDestroy {
     this._listenSubmit();
     this._listenReadTheRecords();
     this._listenStopReadRecords();
+    this._listenSelectRecord();
+    
   }
 
   get btnLabel(): string {
@@ -67,17 +68,31 @@ export class ListenComponent implements OnInit, OnDestroy {
     })
   }
 
+  private _listenSelectRecord(){
+    this.speech.selectRecord$.subscribe((item :any)=>{
+      debugger
+      if(item.recordNumber > 0) {
+        this.dataService.searchedData.forEach(record=>{
+          if(record.serialNo === item.recordNumber){
+            record.checked = item.checkedValue
+            
+          }
+        })
+        this.dataService.updateRowData.next(this.dataService.searchedData);
+      }
+      this._setError();
+   })
+ }
+
   private _listenReadTheRecords(){
     this.speech.readTheRecords$.subscribe((item :any)=>{
       console.log(item);
       this._setError();
-    //  this.textField = item.textField
       if(item){
         this.speech.synthesizeSpeechFromText("Say Stop if you want to stop");
         this.dataService.searchedData.forEach(record=>{
           this.speech.synthesizeSpeechFromText("Record Number " + record.serialNo + " "+ record.title);
         })
-        // this.speech.synthesizeSpeechFromText("hello");
         this.speech.readTheRecords$.next(false)
       }
    })
@@ -156,6 +171,7 @@ export class ListenComponent implements OnInit, OnDestroy {
 
   getSuggestions() {
     this.suggestedData = this.dataService.getPnBySearch(this.textField);
+    console.log(this.suggestedData.length);
   }
 
   selectedQuery(data: any) {

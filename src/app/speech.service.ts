@@ -1,6 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Subject } from 'rxjs/Subject';
+import { DataServiceService } from './services/data-service.service';
 
 // TypeScript declaration for annyang
 declare var annyang: any;
@@ -15,7 +16,23 @@ export class SpeechService {
   listening = false;
   readTheRecords$ = new BehaviorSubject(false);
   stopReading$ = new BehaviorSubject(false);
-  constructor(private zone: NgZone) {}
+  selectRecord$ = new BehaviorSubject({recordNumber:0,checkedValue:false});
+  clickOnExport$  = new BehaviorSubject(false);
+
+  numbers = {
+    one : 1,
+    two : 2,
+    three:3,
+    four : 4,
+    five :5 ,
+    six: 6,
+    seven: 7,
+    eight : 8,
+    nine : 9,
+    ten: 10
+  }
+
+  constructor(private zone: NgZone, private dataService: DataServiceService) {}
 
   get speechSupported(): boolean {
     return !!annyang;
@@ -23,17 +40,17 @@ export class SpeechService {
 
   init() {
     const commands = {
-      'enter text *field': (field) => {
+      'enter text (field) *field': (field) => {
         this.zone.run(() => {
           this.textField$.next({'textField': field});
         });
       },
-      'enter publication number *field': (field) => {
+      'enter publication (number) *field': (field) => {
         this.zone.run(() => {
           this.publicationNumber$.next(field);
         });
       },
-      'submit': () => {
+      'search': () => {
         this.zone.run(() => {
           this.submit$.next(true);
         });
@@ -48,6 +65,29 @@ export class SpeechService {
           this.stopReading$.next(true);
         });
       },
+      'select record (number) :field' : (field) => {
+        debugger
+        var inputNumber = isNaN(Number(field)) ? this.numbers[field] : Number(field);
+        if(inputNumber>0){
+        this.zone.run(() => {
+          this.selectRecord$.next({recordNumber:inputNumber,checkedValue:true});
+        });
+      }
+      },
+      'deselect record (number) :field' : (field) => {
+        debugger
+        var inputNumber = isNaN(Number(field)) ? this.numbers[field] : Number(field);
+        if(inputNumber>0){
+        this.zone.run(() => {
+          this.selectRecord$.next({recordNumber:inputNumber,checkedValue:false});
+        });
+      }
+      },
+      'export' : () => {
+        this.zone.run(() => {
+          this.clickOnExport$.next(true);
+        });
+      }
     
     };
     annyang.addCommands(commands);
@@ -69,7 +109,7 @@ export class SpeechService {
     annyang.addCallback('resultNoMatch', (userSaid) => {
       this._handleError(
         'no match',
-        'Spoken command not recognized. Say "Enter text Oxygen". OR Enter Publication Number 1234. Or Click Submit',
+        'Spoken command not recognized. Say "Enter text Oxygen". OR Enter Publication Number 1234. Or Click Search',
         { results: userSaid });
     });
   }

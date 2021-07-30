@@ -6,18 +6,30 @@
     <!-- <app-keyboard *ngIf="!speech.speechSupported"></app-keyboard> -->
   </ng-template>
 
-  <div *ngIf="rowData.length > 0">
-    <ag-grid-angular
-      style="width: 100%; height: 500px; border: 1px solid rgb(219, 219, 219); margin: 50px 0;" 
-      class="ag-theme-material"
+  <div>
+    <ag-grid-angular *ngIf="loader === false && rowData.length"
+      style="width: 100%; height: 500px; margin: 50px 0;" 
+      class="ag-theme-material ag-grid-box"
       [rowData]="rowData" 
       [columnDefs]="columnDefs"
       [defaultColDef]="defaultColDef"
       [overlayNoRowsTemplate]="'No data found'"
       [animateRows]="true">
     </ag-grid-angular>
+    <div class="spinner-border text-success" role="status" *ngIf="loader" style="margin: 10% 0 10% 50%; width: 70px; height: 70px;">
+      <span class="sr-only">Loading...</span>
+    </div>
   </div>
-  <button  *ngIf="rowData.length > 0" class="btn btn-primary" style= "margin-left: 45%; margin-bottom: 50px;;" 
+  
+
+  <button  *ngIf="rowData.length > 0" class="btn btn-primary" style= "margin-left: 45%; margin-bottom: 50px;" 
     (click)="export()">Export</button>
   <!-- <app-voiceBot *ngIf="ml.voiceBotReady && ml.pronoun"></app-voiceBot> -->
+</div>
+
+<div>
+  <button class="recorder" (click)="toggleClick($event)">
+    <i class="bi bi-mic-fill" *ngIf="speech.listening" ></i>
+    <i class="bi bi-mic-mute-fill"  *ngIf="!speech.listening" ></i>
+  </button>
 </div>

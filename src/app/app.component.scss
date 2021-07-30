@@ -1,3 +1,35 @@
 ::ng-deep .ag-theme-material .ag-cell, .ag-theme-material .ag-full-width-row .ag-cell-wrapper.ag-row-group {
     line-height: 30px;
 }
+
+.recorder {
+    height: 70px;
+    width: 70px;
+    border: 1px solid rgb(243, 243, 243);
+    border-radius: 50px;
+    position: fixed;
+    left: 90%;
+    bottom: 8%;
+    padding: 15px 20px;
+    margin: 5px 5px;
+    color: #000;
+    background-color: rgb(252, 186, 186);
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+.bi-mic-fill {
+    height: 1000px;
+}
+
+.ag-grid-box {
+    border: 1px solid rgb(241, 241, 241);
+    color: #000;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+}

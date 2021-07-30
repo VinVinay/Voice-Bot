@@ -12,7 +12,7 @@ import { ExcelService } from './excel-export.service';
 export class AppComponent implements OnInit {
 
   columnDefs = [
-    {headerName: ' ', field: 'patentCheckBox', width: 40,  cellRenderer: function(params: any) { 
+    {headerName: ' ', field: 'checked', width: 40,  cellRenderer: function(params: any) { 
       var input = document.createElement('input');
       input.type="checkbox";
       input.checked=params.value;
@@ -24,14 +24,15 @@ export class AppComponent implements OnInit {
   }},
     {headerName: 'Patent Number', field: 'patentNumber', width: 200},
     {headerName: 'Title', field: 'patentTitle', wrapText: true, width: 300, autoHeight: true },
-    {headerName: 'DWPI Title', field: 'dwpiTitle', wrapText: true, width: 540, autoHeight: true }
+    {headerName: 'DWPI Title', field: 'dwpiTitle', wrapText: true, width: 550, autoHeight: true }
   ];
   defaultColDef = {
     sortable: true,
   };
   rowData = [];
-
+  public loader: boolean = false;
   public fetchedResult: any = [];
+  public listening: boolean;
 
   constructor(
     private dataService: DataServiceService,
@@ -42,19 +43,40 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.searchedQuery.subscribe(data => {
       console.log(data);
-      this.rowData = [];
       let fetchedResult = this.dataService.searchedData = this.dataService.getPnByQuery(data);
-      if(fetchedResult.length > 0) {
-        fetchedResult.forEach((element, index) => {
-          this.rowData.push({
-            serialNo: index, 
-            patentNumber: element.publicationNumber,
-            patentTitle: element.title,
-            dwpiTitle: element.dwpiTitle
-          })
-        });
+      this.loader = true;
+      setTimeout(() => {
+        this.loader = false;
+        this.addDataToRow(fetchedResult);
+      }, 1000);
+      
+    });
+
+    this.dataService.updateRowData.subscribe(data=>{
+      this.addDataToRow(data);
+    });
+
+    this.speech.clickOnExport$.subscribe(data=>{
+      if(data){
+        this.export();
+        this.speech.clickOnExport$.next(false);
       }
-    })
+    });
+  }
+
+  public addDataToRow(data:any) {
+    if(data.length) {
+      this.rowData = [];
+      data.forEach((element, index) => {
+        this.rowData.push({
+          checked : element.checked,
+          serialNo: index + 1, 
+          patentNumber: element.publicationNumber,
+          patentTitle: element.title,
+          dwpiTitle: element.dwpiTitle
+        })
+      });
+    }
   }
 
   public export() {
@@ -63,4 +85,14 @@ export class AppComponent implements OnInit {
       this.rowData
     );
   }
+
+  public toggleClick(data) {
+    this.listening = !this.listening;
+    if(this.listening) {
+      this.speech.startListening();
+    } else {
+      this.speech.abort();
+    }
+    
   }
+}
