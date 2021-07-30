@@ -1,8 +1,8 @@
 <body>
   <div class="toolbar" role="banner">
-    <img fxLayoutAlign="start center" src="assets/images/clarivate-logo-header.svg" alt="logo" class="logo" width="130" height="13" />
+    <img fxLayoutAlign="start center" src="https://clarivate.com/code/wp-content/themes/clarivate/src/img/logo.svg?v=2.2.6" alt="logo" class="logo" />
   </div>
-  <div class="container">
+  <div class="container form-body">
     <h1 class="text-center appName">Clarivate's Voice Assistant</h1>
 
     <ng-template [ngIf]="!ml.voiceBotReady || !ml.pronoun">
@@ -25,7 +25,7 @@
     </div>
     
 
-    <button  *ngIf="rowData.length > 0 && loader === false" class="button" style= "margin-left: 45%; " 
+    <button  *ngIf="rowData.length > 0 && loader === false" class="button" style= "margin: 1% 0 3% 45%;" 
       (click)="export()">Export</button>
     <!-- <app-voiceBot *ngIf="ml.voiceBotReady && ml.pronoun"></app-voiceBot> -->
   </div>
@@ -34,6 +34,7 @@
     <button class="recorder" (click)="toggleClick($event)" [ngStyle]="{'background-color': speech.listening === true ? 'red' : '#5e33bf'}">
       <i class="bi bi-mic-fill" *ngIf="speech.listening" ></i>
       <i class="bi bi-mic-mute-fill"  *ngIf="!speech.listening" ></i>
+      {{ !speech.listening ? 'Speak to search' : 'stop search' }}
     </button>
   </div>
 
