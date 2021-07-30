@@ -1,6 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Subject } from 'rxjs/Subject';
+import { DataServiceService } from './services/data-service.service';
 
 // TypeScript declaration for annyang
 declare var annyang: any;
@@ -31,7 +32,7 @@ export class SpeechService {
     ten: 10
   }
 
-  constructor(private zone: NgZone) {}
+  constructor(private zone: NgZone, private dataService: DataServiceService) {}
 
   get speechSupported(): boolean {
     return !!annyang;

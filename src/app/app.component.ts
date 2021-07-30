@@ -12,7 +12,7 @@ import { ExcelService } from './excel-export.service';
 export class AppComponent implements OnInit {
 
   columnDefs = [
-    {headerName: ' ', field: 'checked', width: 50,  cellRenderer: function(params: any) { 
+    {headerName: ' ', field: 'checked', width: 40,  cellRenderer: function(params: any) { 
       var input = document.createElement('input');
       input.type="checkbox";
       input.checked=params.value;
@@ -22,16 +22,17 @@ export class AppComponent implements OnInit {
       });
       return input;
   }},
-    {headerName: 'Sl. No.', field: 'serialNo', width: 60},
     {headerName: 'Patent Number', field: 'patentNumber', width: 200},
-    {headerName: 'Title', field: 'patentTitle', wrapText: true, width: 780, autoHeight: true,}
+    {headerName: 'Title', field: 'patentTitle', wrapText: true, width: 300, autoHeight: true },
+    {headerName: 'DWPI Title', field: 'dwpiTitle', wrapText: true, width: 550, autoHeight: true }
   ];
   defaultColDef = {
     sortable: true,
   };
   rowData = [];
-
+  public loader: boolean = false;
   public fetchedResult: any = [];
+  public listening: boolean;
 
   constructor(
     private dataService: DataServiceService,
@@ -43,22 +44,25 @@ export class AppComponent implements OnInit {
     this.dataService.searchedQuery.subscribe(data => {
       console.log(data);
       let fetchedResult = this.dataService.searchedData = this.dataService.getPnByQuery(data);
-      this.addDataToRow(fetchedResult);
-    })
+      this.loader = true;
+      setTimeout(() => {
+        this.loader = false;
+        this.addDataToRow(fetchedResult);
+      }, 1000);
+      
+    });
 
     this.dataService.updateRowData.subscribe(data=>{
       this.addDataToRow(data);
-    })
+    });
 
     this.speech.clickOnExport$.subscribe(data=>{
       if(data){
         this.export();
         this.speech.clickOnExport$.next(false);
       }
-    })
+    });
   }
-
-
 
   public addDataToRow(data:any) {
     if(data.length) {
@@ -68,7 +72,8 @@ export class AppComponent implements OnInit {
           checked : element.checked,
           serialNo: index + 1, 
           patentNumber: element.publicationNumber,
-          patentTitle: element.title
+          patentTitle: element.title,
+          dwpiTitle: element.dwpiTitle
         })
       });
     }
@@ -80,4 +85,14 @@ export class AppComponent implements OnInit {
       this.rowData
     );
   }
+
+  public toggleClick(data) {
+    this.listening = !this.listening;
+    if(this.listening) {
+      this.speech.startListening();
+    } else {
+      this.speech.abort();
+    }
+    
   }
+}

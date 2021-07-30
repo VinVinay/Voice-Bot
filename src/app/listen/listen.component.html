@@ -1,4 +1,4 @@
-<div class="alert alert-info mt-3">
+<!-- <div class="alert alert-info mt-3">
 
   <div class="row mb-3">
     <div class="col btn-group">
@@ -26,7 +26,7 @@
       </p>
     </div>
   </div>
-</div>
+</div> -->
 
 
 
@@ -39,11 +39,11 @@
         <input type="text" class="form-control" name="email-field" placeholder="Say Enter text field"
             [(ngModel)]="textField" (ngModelChange)="getSuggestions()" autocomplete="off">
     </div>
-    <div *ngIf="suggestedData.length > 0">
+    <div *ngIf="suggestedData.length">
       <ul class="filter-select">
         <li class="filter-select-list" *ngFor="let data of suggestedData" (click)="selectedQuery(data)"><p class="artist-name">{{ data }}</p>
       </ul>
-  </div>
+    </div>
 
     <div class="form-group">
         <label for="exampleFormControlSelect1">Patent collections</label>
@@ -62,7 +62,7 @@
             [(ngModel)]="publicationNumber"></textarea>
     </div>
 
-    <button class="btn btn-primary" (click)="submitForm()">Search</button>
+    <button class="button" (click)="submitForm()">Search</button>
 
 </form>
 

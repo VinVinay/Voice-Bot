@@ -50,6 +50,7 @@ export class ExcelService {
         dataPerPublications.push(dataPerDialogPatent.serialNo);
         dataPerPublications.push(dataPerDialogPatent.patentNumber);
         dataPerPublications.push(dataPerDialogPatent.patentTitle);
+        dataPerPublications.push(dataPerDialogPatent.dwpiTitle);
         formattedData.push(dataPerPublications);
         dataPerPublications = [];
     }

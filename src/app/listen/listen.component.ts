@@ -171,6 +171,7 @@ export class ListenComponent implements OnInit, OnDestroy {
 
   getSuggestions() {
     this.suggestedData = this.dataService.getPnBySearch(this.textField);
+    console.log(this.suggestedData.length);
   }
 
   selectedQuery(data: any) {
