@@ -1,5 +1,6 @@
 import { ICellRendererParams } from '@ag-grid-community/all-modules';
 import { Component, OnInit } from '@angular/core';
+import { SpeechService } from './../speech.service';
 
 @Component({
   selector: 'app-export-textarea',
@@ -16,10 +17,11 @@ export class ExportCheckBoxComponent implements OnInit {
     this.params = params;
   }
 
-  constructor() {}
+  constructor(public speech: SpeechService) {}
 
   ngOnInit() {}
 
-  public onClickOnExport(checked) {
+  public onClickOnExport(checked,rowindex) {
+    this.speech.selectRecord$.next({recordNumber:rowindex+1,checkedValue:checked});
   }
 }

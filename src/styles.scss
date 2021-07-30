@@ -6,6 +6,7 @@
 @import "~ag-grid-community/dist/styles/ag-theme-material";
 
 $variable: #5e33bf;
+$headercolor: #282828;
 
 html, body {
   font-family: "Source Sans Pro",sans-serif;
@@ -52,12 +53,12 @@ html::-webkit-scrollbar {
 
 .toast-listen-bar {
   font-family: 'Source Sans Pro', sans-serif;
-  background: $variable;
+  background: $headercolor;
   color: #ffffff;
   max-width: 50vw !important;
-  min-width: 775px !important;
+  min-width: 73% !important;
   padding: 0px !important;
-  top:0;
+  top: 60px;
 
   .mat-button-wrapper {
     color: #ffffff;
@@ -68,5 +69,5 @@ html::-webkit-scrollbar {
 
 .mat-snack-bar-container{
   position: absolute !important;
-  left:25%;
+  left: 12%;
 }
