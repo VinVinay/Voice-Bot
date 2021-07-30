@@ -3,6 +3,7 @@ import { DataServiceService } from './services/data-service.service';
 import { SpeechService } from './speech.service';
 import { voiceBotService } from './voiceBot.service';
 import { ExcelService } from './excel-export.service';
+import { ExportCheckBoxComponent } from './components/export-checkbox';
 
 @Component({
   selector: 'app-root',
@@ -12,17 +13,7 @@ import { ExcelService } from './excel-export.service';
 export class AppComponent implements OnInit {
 
   columnDefs = [
-    {headerName: ' ', field: 'checked', width: 40,  cellRenderer: function(params: any) { 
-      var input = document.createElement('input');
-      input.type="checkbox";
-      input.checked=params.value;
-      input.style.cssText = 'display: flex !important;;align-items: center !important;'
-      input.addEventListener('click', function (event) {
-          params.value=!params.value;
-          params.node.data.fieldName = params.value;
-      });
-      return input;
-  }},
+    {headerName: ' ', field: 'checked', width: 100,  cellRendererFramework: ExportCheckBoxComponent},
     {headerName: 'Patent Number', field: 'patentNumber', width: 200},
     {headerName: 'Title', field: 'patentTitle', wrapText: true, width: 300, autoHeight: true },
     {headerName: 'DWPI Title', field: 'dwpiTitle', wrapText: true, width: 500, autoHeight: true }
