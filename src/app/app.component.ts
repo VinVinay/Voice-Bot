@@ -12,11 +12,10 @@ import { ExcelService } from './excel-export.service';
 export class AppComponent implements OnInit {
 
   columnDefs = [
-    {headerName: ' ', field: 'checked', width: 40,  cellRenderer: function(params: any) { 
+    {headerName: ' ', field: 'checked', width: 50, cellClass: 'patent-checkbox', cellRenderer: function(params: any) { 
       var input = document.createElement('input');
       input.type="checkbox";
       input.checked=params.value;
-      input.style.cssText = 'display: flex !important;;align-items: center !important;'
       input.addEventListener('click', function (event) {
           params.value=!params.value;
           params.node.data.fieldName = params.value;
