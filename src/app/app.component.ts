@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
       var input = document.createElement('input');
       input.type="checkbox";
       input.checked=params.value;
+      input.style.cssText = 'display: flex !important;;align-items: center !important;'
       input.addEventListener('click', function (event) {
           params.value=!params.value;
           params.node.data.fieldName = params.value;
@@ -24,7 +25,7 @@ export class AppComponent implements OnInit {
   }},
     {headerName: 'Patent Number', field: 'patentNumber', width: 200},
     {headerName: 'Title', field: 'patentTitle', wrapText: true, width: 300, autoHeight: true },
-    {headerName: 'DWPI Title', field: 'dwpiTitle', wrapText: true, width: 540, autoHeight: true }
+    {headerName: 'DWPI Title', field: 'dwpiTitle', wrapText: true, width: 500, autoHeight: true }
   ];
   defaultColDef = {
     sortable: true,
