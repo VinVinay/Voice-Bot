@@ -11,15 +11,18 @@
   color: rgb(105, 105, 105);
   border: 1px solid #ccc;
   border-top: none;
-  /*so things don't jump around*/
   position: absolute;
   height: 170px;
   background: #fff;
   overflow-y: auto;
-  padding-left: 15px;
+  padding-left: 0;
 
   .filter-select-list {
+    display: flex;
+    align-items: center;
     cursor: pointer;
+    padding: 0 20px;
+    height: 45px;
 
     .artist-name {
       display: inline-block;
@@ -27,7 +30,7 @@
   }
 
   .filter-select-list:hover {
-    background:  #C0C0C0;
+    background:  #5e33bf;
     color: #fff
   }
 }

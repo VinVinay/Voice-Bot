@@ -10,11 +10,13 @@ import { SpeechService } from './speech.service';
 import { AgGridModule } from 'ag-grid-angular';
 import { ExcelService } from './excel-export.service';
 import { DatePipe } from '@angular/common';
+import { ExportCheckBoxComponent } from './components/export-checkbox';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListenComponent
+    ListenComponent,
+    ExportCheckBoxComponent
   ],
   imports: [
     BrowserModule,
