@@ -8,7 +8,6 @@
 
   <div>
     <ag-grid-angular *ngIf="loader === false && rowData.length"
-      style="width: 100%; height: 500px; margin: 50px 0;" 
       class="ag-theme-material ag-grid-box"
       [rowData]="rowData" 
       [columnDefs]="columnDefs"
@@ -16,13 +15,13 @@
       [overlayNoRowsTemplate]="'No data found'"
       [animateRows]="true">
     </ag-grid-angular>
-    <div class="spinner-border text-success" role="status" *ngIf="loader" style="margin: 10% 0 10% 50%; width: 70px; height: 70px;">
+    <div class="spinner-border ag-spinner" role="status" *ngIf="loader">
       <span class="sr-only">Loading...</span>
     </div>
   </div>
   
 
-  <button  *ngIf="rowData.length > 0" class="btn btn-primary" style= "margin-left: 45%; margin-bottom: 50px;" 
+  <button  *ngIf="rowData.length > 0 && loader === false" class="button" style= "margin-left: 45%; margin-bottom: 50px;" 
     (click)="export()">Export</button>
   <!-- <app-voiceBot *ngIf="ml.voiceBotReady && ml.pronoun"></app-voiceBot> -->
 </div>
