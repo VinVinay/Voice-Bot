@@ -1,8 +1,10 @@
+
 .icon {
   display: inline-block;
   margin-right: 6px;
   vertical-align: middle;
 }
+
 .filter-select {
   width: 97.4%;
   list-style: none;
@@ -15,16 +17,19 @@
   background: #fff;
   overflow-y: auto;
   padding-left: 15px;
-}
-.filter-select-list {
-  cursor: pointer;
-}
-.artist-name {
-  display: inline-block;
-}
-.filter-select-list:hover {
-  background:  #C0C0C0;
-  color: #fff
+
+  .filter-select-list {
+    cursor: pointer;
+
+    .artist-name {
+      display: inline-block;
+    }
+  }
+
+  .filter-select-list:hover {
+    background:  #C0C0C0;
+    color: #fff
+  }
 }
 
 .search {
@@ -37,6 +42,7 @@
   border-radius: 5px;
 }
 .filter-select::-webkit-scrollbar {
-  width: 8px;
+  height: 5px;
+  width: 5px;
 }
 

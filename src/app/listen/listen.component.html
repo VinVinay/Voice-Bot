@@ -35,25 +35,25 @@
   <form #MyForm="ngForm" >
 
     <div class="form-group">
-        <label>Text field</label>
-        <input type="text" class="form-control" style="position: relative;" name="email-field" placeholder="Say Enter text field"
-            [(ngModel)]="textField" (ngModelChange)="getSuggestions()" autocomplete="off">
-    <div *ngIf="suggestedData.length">
-      <ul class="filter-select">
-        <li class="filter-select-list" *ngFor="let data of suggestedData" (click)="selectedQuery(data)"><p class="artist-name">{{ data }}</p>
-      </ul>
-    </div>
+      <label>Text field</label>
+      <input type="text" class="form-control" style="position: relative;" name="email-field" placeholder="Say Enter text field"
+          [(ngModel)]="textField" (ngModelChange)="getSuggestions()" autocomplete="off">
+      <div *ngIf="suggestedData.length">
+        <ul class="filter-select">
+          <li class="filter-select-list" *ngFor="let data of suggestedData" (click)="selectedQuery(data)"><p class="artist-name">{{ data }}</p>
+        </ul>
+      </div>
   </div>
     <div class="form-group">
-        <label for="exampleFormControlSelect1">Patent collections</label>
-        <select class="form-control" id="exampleFormControlSelect1" name="single-select" required
-            [(ngModel)]="patentCollections">
-            <option></option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-        </select>
+      <label for="exampleFormControlSelect1">Patent collections</label>
+      <select class="form-control" id="exampleFormControlSelect1" name="single-select" required
+          [(ngModel)]="patentCollections">
+          <option></option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+      </select>
     </div>
     <div class="form-group">
         <label for="exampleFormControlTextarea1">Publication number</label>
