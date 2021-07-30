@@ -43,13 +43,14 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.searchedQuery.subscribe(data => {
       console.log(data);
-      let fetchedResult = this.dataService.searchedData = this.dataService.getPnByQuery(data);
-      this.loader = true;
-      setTimeout(() => {
-        this.loader = false;
-        this.addDataToRow(fetchedResult);
-      }, 1000);
-      
+      if(data.text !== ''){
+        let fetchedResult = this.dataService.searchedData = this.dataService.getPnByQuery(data);
+        this.loader = true;
+        setTimeout(() => {
+          this.loader = false;
+          this.addDataToRow(fetchedResult);
+        }, 1000);
+      }
     });
 
     this.dataService.updateRowData.subscribe(data=>{
