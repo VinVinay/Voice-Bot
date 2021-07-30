@@ -76,9 +76,8 @@ export class AppComponent implements OnInit {
 
   public export() {
     //alert("you have submiited TEXT FIELD ="+ this.textField + " PUBLICATION NUMBER = " +  this.publicationNumber);
-    this.excelService.generateExcel(
-      this.rowData
-    );
+    
+    this.excelService.generateExcel( this.rowData );
   }
 
   public toggleClick(data) {

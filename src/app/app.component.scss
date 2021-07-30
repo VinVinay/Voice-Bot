@@ -7,13 +7,14 @@ $whiteshade: #Fdfcfa;
 }
 
 .recorder {
-    height: 60px;
+    height: 70px;
+    width: 70px;
     border: 1px solid rgb(243, 243, 243);
     border-radius: 50px;
     position: fixed;
-    left: 88%;
+    left: 93%;
     float: right;
-    top: 12%;
+    bottom: 12%;
     padding: 15px;
     color: white;
     background-color:$variable;
@@ -100,7 +101,7 @@ $whiteshade: #Fdfcfa;
     color: white;
     font-weight: 600;
     position: fixed;
-    z-index: 100;
+    z-index: 10;
 
     .logo{
         height: 30px;
