@@ -1,30 +1,23 @@
 $variable: #5e33bf;
 $headercolor: rgb(29, 29, 29);
+$whiteshade: #Fdfcfa;
 
 ::ng-deep .ag-theme-material .ag-cell, .ag-theme-material .ag-full-width-row .ag-cell-wrapper.ag-row-group {
     line-height: 30px;
 }
 
-.ag-spinner {
-    color: $variable;
-    margin: 10% 0 10% 50%; 
-    width: 70px; 
-    height: 70px;
-}
-
 .recorder {
-    height: 70px;
-    width: 70px;
+    height: 60px;
     border: 1px solid rgb(243, 243, 243);
     border-radius: 50px;
     position: fixed;
-    left: 90%;
-    bottom: 12%;
-    padding: 15px 20px;
-    margin: 5px 5px;
+    left: 88%;
+    float: right;
+    top: 12%;
+    padding: 15px;
     color: white;
     background-color:$variable;
-    border-radius: 45px;
+    border-radius: 50px;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease 0s;
     cursor: pointer;
@@ -37,17 +30,26 @@ $headercolor: rgb(29, 29, 29);
 
 .grid{
     min-height: 161px;
+
+    .ag-spinner {
+        color: $variable;
+        margin: 10% 0 10% 50%; 
+        width: 70px; 
+        height: 70px;
+    }
+
+    .ag-grid-box {
+        width: 100%; height: 600px;    margin: 100px 0px 30px;
+        
+        border: 1px solid rgb(241, 241, 241);
+        color: rgb(83, 83, 83);
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease 0s;
+    }
 }
-.ag-grid-box {
-    width: 100%; height: 600px;    margin: 100px 0px 30px;
-    
-    border: 1px solid rgb(241, 241, 241);
-    color: rgb(83, 83, 83);
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease 0s;
-}
+
 ::ng-deep .ag-body-viewport::-webkit-scrollbar-thumb {
     background-color: #646464;
     border-radius: 5px;
@@ -55,13 +57,6 @@ $headercolor: rgb(29, 29, 29);
 ::ng-deep .ag-body-viewport::-webkit-scrollbar {
     height: 5px;
     width: 5px;
-  }
-
-
-
-.logo{
-    height: 55px;
-    padding-left: 22px;
 }
 
 .appName {
@@ -75,7 +70,7 @@ $headercolor: rgb(29, 29, 29);
     bottom: 0px;
     left: 0;
     right: 0;
-    height: 45px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -86,42 +81,51 @@ $headercolor: rgb(29, 29, 29);
     align-items: middle;
   }
 
+.form-body {
+    margin-top: 70px;;
+}
 
 
-  .toolbar {
+.toolbar {
     /* position: absolute; */
     top: 0;
     left: 0;
     right: 0;
-    height: 45px;
+    height: 70px;
     display: flex;
+    justify-content: start;
     align-items: center;
-    background-color: $headercolor;
+    background-color: $whiteshade;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
     color: white;
     font-weight: 600;
-  }
+    position: fixed;
+    z-index: 100;
 
-  ::ng-deep .patent-checkbox {
+    .logo{
+        height: 30px;
+        width: 38%;
+    }
+}
+
+::ng-deep .patent-checkbox {
     display: flex;
     justify-content: center;
     left: 0px;
     padding: 15px 5px 0 5px !important;
-    
+
     input {
         height: 18px;
         width: 18px;
         background-color: #5e33bf;
-        transition: background-color .4s cubic-bezier(.25,.8,.25,1), box-shadow 280ms cubic-bezier(.4,0,.2,1)
-        // :checked {
-        //     background-color: #9691a1 !important;
-        //     color: #99a1a7;
-        // }
+        transition: background-color .4s cubic-bezier(.25,.8,.25,1), box-shadow 280ms cubic-bezier(.4,0,.2,1);
     }
-    input:checked:after {
-        background-color: #9691a1 !important;
+
+    input:checked {
+        background-color: #5e33bf !important;
         color: #99a1a7;
     }
-  }
+}
 
 
 

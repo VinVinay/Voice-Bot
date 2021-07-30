@@ -117,7 +117,10 @@ export const oxygenHuman = [
      {checked : false, serialNo: 1,publicationNumber: 'JP1133906A', title: 'PRODUCTION OF OXIDE SUPERCONDUCTOR' , dwpiTitle : 'Oxide superconductor prodn. by treating precursor of oxide superconductor structural element in oxidising atmos., and reducing in hydrogen atmos.'},
      {checked : false, serialNo: 2,publicationNumber: 'JP1124917A', title: ' MANUFACTURE OF WIRE MATERIAL' , dwpiTitle : 'Mfg. superconducting wire material with small defect and distortion using powder made by fusion spray as superconductor powder which is filled in reinforcing pipe and drawn NoAbstract'},
      { checked : false,serialNo: 3,publicationNumber: 'JP1122957A', title: 'PRODUCTION OF OXIDE SUPERCONDUCTOR	 ' , dwpiTitle : 'Mfg. superconducting oxide from powder contg. Gp=IIa, Gp=IIa, Gp=Ib elements also Gp=VIb element, etc. and to which titania is added before sintering'},
-     ];
+     { checked : false, serialNo: 2,publicationNumber: 'CN103386212A', title: ' Water vapor condensation system' , dwpiTitle : 'Steam condensation system, has recoverer connected with heating device, where heating device and recoverer are provided with press, and recoverer is connected with self-control box and provided with pressure gauge and temperature gauge'},
+     { checked : false,serialNo: 3,publicationNumber: 'RU2106882C1', title: 'RESPIRATOR DEVICE FOR SUPPLYING OXYGEN TO HUMAN ORGANISM ' , dwpiTitle : 'Breathing apparatus supplying oxygen has mask, air conduits and breathing bag in form of oxygen generator including light impenetrable and penetrable shells'},
+     { checked : false,serialNo: 1,publicationNumber: 'IN200905726P1', title: '"DRYING AND GASIFICATION PROCESS"' , dwpiTitle : 'Syngas production from carbonaceous substance and/or carbonaceous substance treatment involves reducing surface moisture of carbonaceous substance which is directly contacted with hot gas, and/or indirectly contacting with saturated steam'},
+  ];
   
   
   

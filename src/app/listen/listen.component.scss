@@ -1,4 +1,4 @@
-
+$variable: #5e33bf;
 .icon {
   display: inline-block;
   margin-right: 6px;
@@ -16,6 +16,7 @@
   background: #fff;
   overflow-y: auto;
   padding-left: 0;
+  z-index: 2;
 
   .filter-select-list {
     display: flex;
@@ -30,15 +31,14 @@
   }
 
   .filter-select-list:hover {
-    background:  #5e33bf;
-    color: #fff
+    background:  #f3f3f3;
+    color: rgb(0, 0, 0, 0.9)
   }
 }
 
 .search {
   margin-top: 19px;
   float: right;
-  margin-right: 45px;
 }
 .filter-select::-webkit-scrollbar-thumb {
   background-color: #646464;
@@ -49,3 +49,22 @@
   width: 5px;
 }
 
+input, textarea {
+  outline: none;
+  border: 1px solid $variable;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 10px 12px;
+  opacity: 0.85;
+  background-color: transparent;
+}
+textarea:focus, input:focus {
+  padding: 9px 11px;
+  border: 2px solid $variable;
+}
+
+.listen-text-label {
+  font-weight: 600;
+  font-size: 14px;
+}
