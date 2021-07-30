@@ -4,17 +4,17 @@
   vertical-align: middle;
 }
 .filter-select {
-  width: 95%;
+  width: 97.4%;
   list-style: none;
   color: rgb(105, 105, 105);
   border: 1px solid #ccc;
   border-top: none;
   /*so things don't jump around*/
   position: absolute;
-  top: calc(47% + 1px);
-  height: 200px;
+  height: 170px;
   background: #fff;
   overflow-y: auto;
+  padding-left: 15px;
 }
 .filter-select-list {
   cursor: pointer;
@@ -26,3 +26,12 @@
   background:  #C0C0C0;
   color: #fff
 }
+
+.filter-select::-webkit-scrollbar-thumb {
+  background-color: #646464;
+  border-radius: 5px;
+}
+.filter-select::-webkit-scrollbar {
+  width: 8px;
+}
+
