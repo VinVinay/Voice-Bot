@@ -42,11 +42,8 @@ export class ListenComponent implements OnInit, OnDestroy {
   constructor(private dataService: DataServiceService, public speech: SpeechService,public snackBar: MatSnackBar,) { }
 
   ngOnInit() {
+    this.speech.synthesizeSpeechFromText("Welcome to Clarivate's Voice Assistant");
     this.speech.init();
-    // this._listenNouns();
-    // this._listenVerbs();
-    // this._listenAdj();
-    
     this._listenErrors();
     this._listentextField();
     this._listenDWPIField();
@@ -147,20 +144,6 @@ export class ListenComponent implements OnInit, OnDestroy {
   this.dataService.searchedQuery.next({text: this.textField, pnNumber: this.publicationNumber});
  }
 
-  // private _listenNouns() {
-  //   this.nounSub = this.speech.words$
-  //     .filter(obj => obj.type === 'noun')
-  //     .map(nounObj => nounObj.word)
-  //     .subscribe(
-  //       noun => {
-  //         this._setError();
-  //         this.nouns = this._updateWords('nouns', this.nouns, noun);
-  //       }
-  //     );
-  // }
-
-
-
   private _listenErrors() {
     this.errorsSub = this.speech.errors$
       .subscribe(err => this._setError(err));
@@ -172,7 +155,8 @@ export class ListenComponent implements OnInit, OnDestroy {
       this.dataService.errorMsg = err.message;
       if(err.error === 'no match'){
         this.snackBar.openFromComponent(ListenToastComponent, {
-          verticalPosition: 'top',
+          duration: 10 * 1000,
+          verticalPosition: 'bottom',
           panelClass: 'toast-listen-bar',
           data: {}
         });

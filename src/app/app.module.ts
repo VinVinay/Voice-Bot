@@ -15,12 +15,14 @@ import {
   MatSnackBarModule,
 } from '@angular/material';
 import { ExportCheckBoxComponent } from './components/export-checkbox';
+import { ListenToastComponent } from './listen-toast/listentoast.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListenComponent,
-    ExportCheckBoxComponent
+    ExportCheckBoxComponent,
+    ListenToastComponent
   ],
   imports: [
     BrowserAnimationsModule,
