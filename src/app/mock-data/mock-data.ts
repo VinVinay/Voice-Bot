@@ -1,9 +1,9 @@
 export const oxygen = [
-    'oxygen human',
-    'oxygen corona',
-    'oxygen plants',
-    'oxygen atmosphere',
-    'oxygen machine',
+    'Oxygen Concentrators',
+    'Oxygen Cylinders',
+    'Oxygen Corona Virus',
+    'Oxygen rocket repellant',
+    'Oxygen sewage treatment',
 ];
 
 export const virtualReality = [

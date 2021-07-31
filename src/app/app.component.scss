@@ -36,16 +36,16 @@ $whiteshade: #Fdfcfa;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-left: 15px;;
+            margin-left: 50px;;
 
             img {
-                height: 100px;
-                width: 100px;
+                height: 80px;
+                width: 80px;
             }
 
             span {
-                font-size: 16px;
-                font-weight: 600;
+                font-size: 13px;
+                font-weight: 500;
                 font-family: 'roboto', sans-serif;
                 text-align: center;
             }
@@ -55,9 +55,11 @@ $whiteshade: #Fdfcfa;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            margin-right: 155px;
 
             .appName {
-                font-size: 35px;
+                font-size: 45px;
+                text-transform: uppercase;
                 font-weight: 600;
                 color: $variable;
             }
@@ -92,7 +94,7 @@ $whiteshade: #Fdfcfa;
             cursor: pointer;
             outline: none;
             z-index: 100;
-            margin: 70px 0 0 0;
+            margin: 50px 0 0 0;
         
             .bi {
                 color: white;
@@ -229,7 +231,7 @@ $font: 'Neuton', serif;
     position: fixed;
     left: 87.5%;
     float: right;
-    top: 12%;
+    top: 9%;
 
 	.image, .copy {
 		//width: 100%;
