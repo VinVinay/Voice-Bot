@@ -63,8 +63,15 @@ $whiteshade: #Fdfcfa;
 }
 
 .appName {
-    padding: 20px 35px;
-    font-family: cursive;
+    padding: 30px 35px;
+    font-size: 35px;
+    font-weight: 600;
+
+    .appname-quote {
+        font-size: 16px;
+        font-weight: normal;
+        margin-left: 20%;
+    }
 }
 
 .footer  {
