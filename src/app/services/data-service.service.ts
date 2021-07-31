@@ -21,11 +21,11 @@ export class DataServiceService {
     ['machine learning', machineLearning],
     ['technology', fiveG],
 
-    ['oxygen human', oxygenHuman],
-    ['oxygen corona', oxygenCorona],
-    ['oxygen plants', oxygenPlants],
-    ['oxygen atmosphere', oxygenAtmosphere],
-    ['oxygen machine', oxygenMachine],
+    ['Oxygen Concentrators', oxygenHuman],
+    ['Oxygen Cylinders', oxygenCorona],
+    ['Oxygen sewage treatment', oxygenPlants],
+    ['Oxygen rocket repellant', oxygenAtmosphere],
+    ['Oxygen sewage treatment', oxygenMachine],
 
     ['virtual reality multimedia', vrMultiMedia],
     ['virtual reality movies', vrMovies],
@@ -48,7 +48,7 @@ export class DataServiceService {
   getPnBySearch(query: string) {
     let result = '';
     this.map.forEach((value, key) => {
-      if(query.toLowerCase().includes(key)) {
+      if(query.toLowerCase().includes(key.toLowerCase())) {
         result = value;
       }
     });
@@ -62,7 +62,7 @@ export class DataServiceService {
     }
     
     this.resultMap.forEach((value, key) => {
-      if(query[`text`] && query[`text`].toLowerCase().includes(key)) {
+      if(query[`text`] && query[`text`].toLowerCase() === key.toLowerCase()) {
         result = value;
       }
       value.forEach(element => {
