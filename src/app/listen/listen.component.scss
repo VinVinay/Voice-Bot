@@ -17,6 +17,7 @@ $variable: #5e33bf;
   overflow-y: auto;
   padding-left: 0;
   z-index: 2;
+  border-radius: 5px;
 
   .filter-select-list {
     display: flex;
@@ -37,8 +38,8 @@ $variable: #5e33bf;
 }
 
 .search {
-  margin-top: 19px;
-  float: right;
+  margin-top: 28px;
+  float: left;
 }
 .filter-select::-webkit-scrollbar-thumb {
   background-color: #646464;

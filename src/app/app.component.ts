@@ -13,7 +13,7 @@ import { ExportCheckBoxComponent } from './components/export-checkbox';
 export class AppComponent implements OnInit {
 
   columnDefs = [
-    {headerName: ' ', field: 'checked', width: 100,  cellRendererFramework: ExportCheckBoxComponent},
+    {headerName: 'S. No.', field: 'checked', width: 100,  cellRendererFramework: ExportCheckBoxComponent},
     {headerName: 'Patent Number', field: 'patentNumber', width: 200},
     {headerName: 'Title', field: 'patentTitle', wrapText: true, width: 300, autoHeight: true },
     {headerName: 'DWPI Title', field: 'dwpiTitle', wrapText: true, width: 500, autoHeight: true }
@@ -50,7 +50,7 @@ export class AppComponent implements OnInit {
     this.dataService.updateRowData.subscribe(data=>{
       this.addDataToRow(data);
     });
-
+    
     this.speech.clickOnExport$.subscribe(data=>{
       if(data){
         this.export();
@@ -76,8 +76,19 @@ export class AppComponent implements OnInit {
 
   public export() {
     //alert("you have submiited TEXT FIELD ="+ this.textField + " PUBLICATION NUMBER = " +  this.publicationNumber);
+    let individualSelection = false;
+    let selectedData = [];
+    for(const uniqueData of this.rowData){
+      if(uniqueData.checked){
+        individualSelection = true;
+        selectedData.push(uniqueData);
+      }
+    }
+    if(!individualSelection){
+      selectedData = this.rowData;
+    }
     this.excelService.generateExcel(
-      this.rowData
+      selectedData
     );
   }
 

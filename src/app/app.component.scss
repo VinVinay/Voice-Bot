@@ -1,5 +1,5 @@
 $variable: #5e33bf;
-$headercolor: rgb(29, 29, 29);
+$headercolor: #282828;
 $whiteshade: #Fdfcfa;
 
 ::ng-deep .ag-theme-material .ag-cell, .ag-theme-material .ag-full-width-row .ag-cell-wrapper.ag-row-group {
@@ -129,21 +129,23 @@ $font: 'Neuton', serif;
 //end help here
 
 .recorder {
-    height: 60px;
+    height: 70px;
+    width: 70px;
     border: 1px solid rgb(243, 243, 243);
     border-radius: 50px;
     position: fixed;
-    left: 88%;
+    left: 93%;
     float: right;
-    top: 12%;
+    bottom: 28%;
     padding: 15px;
     color: white;
-    background-color:$variable;
+    background-color: $variable;
     border-radius: 50px;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
+    z-index: 100;
 
     .bi {
         color: white;
@@ -155,14 +157,15 @@ $font: 'Neuton', serif;
 
     .ag-spinner {
         color: $variable;
-        margin: 10% 0 10% 50%; 
+        margin: 15% 0 10% 35%; 
         width: 70px; 
         height: 70px;
     }
 
     .ag-grid-box {
-        width: 100%; height: 600px;    margin: 100px 0px 30px;
-        
+        width: 100%; 
+        height: 600px;    
+        margin: 140px 0px 30px;
         border: 1px solid rgb(241, 241, 241);
         color: rgb(83, 83, 83);
         background-color: white;
@@ -182,17 +185,25 @@ $font: 'Neuton', serif;
 }
 
 .appName {
-    padding: 35px;
-    font-family: cursive;
+    padding: 30px 35px;
+    font-size: 35px;
+    font-weight: 600;
+
+    .appname-quote {
+        font-size: 16px;
+        font-weight: normal;
+        margin-left: 20%;
+    }
 }
 
 .footer  {
-    top: 10px;
+    top: 0;
     width: 100%;
-    bottom: 0px;
+    bottom: 0;
     left: 0;
     right: 0;
-    height: 60px;
+    height: 120px;
+    margin-top: 6%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -201,12 +212,7 @@ $font: 'Neuton', serif;
     font-weight: 500;
     position: relative;
     align-items: middle;
-  }
-
-.form-body {
-    margin-top: 70px;;
 }
-
 
 .toolbar {
     /* position: absolute; */
@@ -221,8 +227,7 @@ $font: 'Neuton', serif;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
     color: white;
     font-weight: 600;
-    position: fixed;
-    z-index: 100;
+    z-index: 10;
 
     .logo{
         height: 30px;
