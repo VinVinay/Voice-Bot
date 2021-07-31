@@ -13,7 +13,7 @@ import { ExportCheckBoxComponent } from './components/export-checkbox';
 export class AppComponent implements OnInit {
 
   columnDefs = [
-    {headerName: ' ', field: 'checked', width: 100,  cellRendererFramework: ExportCheckBoxComponent},
+    {headerName: 'S. No.', field: 'checked', width: 100,  cellRendererFramework: ExportCheckBoxComponent},
     {headerName: 'Patent Number', field: 'patentNumber', width: 200},
     {headerName: 'Title', field: 'patentTitle', wrapText: true, width: 300, autoHeight: true },
     {headerName: 'DWPI Title', field: 'dwpiTitle', wrapText: true, width: 500, autoHeight: true }
