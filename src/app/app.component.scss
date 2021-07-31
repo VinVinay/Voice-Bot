@@ -19,7 +19,7 @@ $whiteshade: #Fdfcfa;
 
     .logo{
         height: 32px;
-        width: 36%;
+        margin: 13.9%;
     }
 }
 
@@ -36,6 +36,7 @@ $whiteshade: #Fdfcfa;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            margin-left: 15px;;
 
             img {
                 height: 100px;
@@ -75,7 +76,7 @@ $whiteshade: #Fdfcfa;
         width: 100%;
         background-image: url('/assets/images/home1.jpg');
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
         //background-attachment: fixed;
 
         .recorder {
@@ -91,7 +92,7 @@ $whiteshade: #Fdfcfa;
             cursor: pointer;
             outline: none;
             z-index: 100;
-            margin: 70px 0 0 80px;
+            margin: 70px 0 0 0;
         
             .bi {
                 color: white;
@@ -100,7 +101,7 @@ $whiteshade: #Fdfcfa;
     }
 
     .grid{
-        width: 76%;
+        width: 75%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -110,7 +111,7 @@ $whiteshade: #Fdfcfa;
             color: $variable;
             width: 70px; 
             height: 70px;
-            margin-bottom: 50px;
+            margin: 50px 0;
         }
     
         .ag-grid-box {
@@ -179,5 +180,125 @@ $whiteshade: #Fdfcfa;
 ::ng-deep .ag-theme-material .ag-cell, .ag-theme-material .ag-full-width-row .ag-cell-wrapper.ag-row-group {
     line-height: 30px;
 }
+
+
+.text {
+    background-color:#ff0000;
+    color:#fff;
+    display:inline-block;
+    padding-left:4px;
+    position: fixed;
+    right: 14%;
+    // float: right;
+    top: 13%;
+}
+
+//help
+
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+// Ribbon Box Styling
+$white: #fff;
+$ribbon-width: 200px;
+$ribbon-height: $ribbon-width/10 + 2*$ribbon-width/100;
+$ribbon-bg-clr: #5e33bf;
+$border-clr: darken($ribbon-bg-clr, 20%);
+$border-width: $ribbon-width/20;
+$border-height: $border-width;
+$ribbon-txt-clr: $white;
+$font: 'Neuton', serif;
+.uppercase {
+	text-transform: uppercase;
+}
+.transition {
+	transition: all ease-in .3s;
+}
+
+.font-break {
+	font-size: 0;
+}
+
+.card {
+	//background: beige;
+	width: $ribbon-width - $border-width*2 - 10;
+	height: 185px;
+	margin: 21% auto 0;
+	border-radius: 0 0 8px 8px;
+    position: fixed;
+    left: 87.5%;
+    float: right;
+    top: 12%;
+
+	.image, .copy {
+		//width: 100%;
+	}
+
+	.image {
+		//border-radius: 10px 10px 0 0;
+		//overflow: hidden;
+		img {
+			width: 100%;
+		}
+	}
+
+	.copy {
+		//background: #fff;
+
+		padding: 16px;
+		font-size: 16px;
+		display: flex;
+		flex-direction:column;
+	}
+
+	.content {
+        padding:2px;
+        font-size: 10px;
+	}
+	.margin {
+		margin-top : 39px
+	}
+
+	.ribbon {
+		position: absolute;
+		left: -$border-width;
+		top: $border-height*1.5;
+		width: $ribbon-width - 10;
+		height: $ribbon-height;
+		background: $ribbon-bg-clr;
+		color: $ribbon-txt-clr;
+		line-height: $ribbon-height;
+		font-family: $font;
+		font-size: $ribbon-height/2;
+		text-align: center;
+		letter-spacing: 2px;
+		//.transition;
+		&:before, &:after {
+			content: '';
+			position: absolute;
+			width: $border-width - 10;
+			height: $border-height;
+			border: $border-width/2 solid $border-clr;
+		}
+		&:before {
+			top: -$border-height;
+			left: 0;
+			border-top-color: transparent;
+			border-left-color: transparent;
+		}
+		&:after {
+			top: $ribbon-height;
+			left: $ribbon-width - $border-width - 10;
+			border-right-color: transparent;
+			border-bottom-color: transparent;
+		}
+	}
+
+}
+
+
+
+//end help here
   
 
