@@ -152,18 +152,20 @@ if( this.textField){
   }
 
   private _setError(err?: any) {
+    
     if (err) {
       console.log('Speech Recognition:', err);
       this.dataService.errorMsg = err.message;
       if(err.error === 'no match'){
         this.snackBar.openFromComponent(ListenToastComponent, {
-          duration: 50 * 1000,
+          duration: 10 * 1000,
           verticalPosition: 'bottom',
           panelClass: 'toast-listen-bar',
           data: {}
         });
       }
     } else {
+      this.snackBar.dismiss();
       this.dataService.errorMsg = null;
     }
   }

@@ -7,6 +7,7 @@
 
 $variable: #5e33bf;
 $headercolor: #282828;
+$toastcolor: #0083da;
 
 html, body {
   font-family: "Source Sans Pro",sans-serif;
@@ -53,7 +54,7 @@ html::-webkit-scrollbar {
 
 .toast-listen-bar {
   font-family: 'Source Sans Pro', sans-serif;
-  background: $variable;
+  background: $toastcolor;
   color: #ffffff;
   max-width: 50vw !important;
   min-width: 73% !important;
