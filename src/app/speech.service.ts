@@ -31,7 +31,16 @@ export class SpeechService {
     seven: 7,
     eight : 8,
     nine : 9,
-    ten: 10
+    ten: 10,
+    for:4,
+    to:2,
+    too:2,
+    tree:3,
+    file:5,
+    date:8,
+    name:9,
+    night:9
+    
   }
 
   constructor(private zone: NgZone, private dataService: DataServiceService) {}
@@ -93,6 +102,7 @@ export class SpeechService {
         this.zone.run(() => {
           this.clickOnExport$.next(true);
         });
+     
       }
     
     };
