@@ -152,6 +152,7 @@ if( this.textField){
   }
 
   private _setError(err?: any) {
+    
     if (err) {
       console.log('Speech Recognition:', err);
       this.dataService.errorMsg = err.message;
@@ -164,6 +165,7 @@ if( this.textField){
         });
       }
     } else {
+      this.snackBar.dismiss();
       this.dataService.errorMsg = null;
     }
   }
