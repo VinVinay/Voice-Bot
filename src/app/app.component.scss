@@ -6,6 +6,128 @@ $whiteshade: #Fdfcfa;
     line-height: 30px;
 }
 
+
+.text {
+    background-color:#ff0000;
+    color:#fff;
+    display:inline-block;
+    padding-left:4px;
+    position: fixed;
+    right: 14%;
+    // float: right;
+    top: 13%;
+}
+
+
+
+//help
+
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+// Ribbon Box Styling
+$white: #fff;
+$ribbon-width: 200px;
+$ribbon-height: $ribbon-width/10 + 2*$ribbon-width/100;
+$ribbon-bg-clr: #5e33bf;
+$border-clr: darken($ribbon-bg-clr, 20%);
+$border-width: $ribbon-width/20;
+$border-height: $border-width;
+$ribbon-txt-clr: $white;
+$font: 'Neuton', serif;
+.uppercase {
+	text-transform: uppercase;
+}
+.transition {
+	transition: all ease-in .3s;
+}
+
+.font-break {
+	font-size: 0;
+}
+
+.card {
+	background: beige;
+	width: $ribbon-width - $border-width*2;
+	height: 185px;
+	margin: 5% auto 0;
+	border-radius: 0 0 8px 8px;
+    position: fixed;
+    left: 87%;
+    float: right;
+    top: 12%;
+	
+	.image, .copy {
+		//width: 100%;
+	}
+	
+	.image {
+		//border-radius: 10px 10px 0 0;
+		//overflow: hidden;
+		img {
+			width: 100%;
+		}
+	}
+	
+	.copy {
+		//background: #fff;
+
+		padding: 16px;
+		font-size: 16px;
+		display: flex;
+		flex-direction:column;
+	}
+	
+	.content {
+				padding:2px;
+                font-size: 10px;
+	}
+	.margin {
+		margin-top : 39px
+	}
+	
+	.ribbon {
+		position: absolute;
+		left: -$border-width;
+		top: $border-height*1.5;
+		width: $ribbon-width;
+		height: $ribbon-height;
+		background: $ribbon-bg-clr;
+		color: $ribbon-txt-clr;
+		line-height: $ribbon-height;
+		font-family: $font;
+		font-size: $ribbon-height/2;
+		text-align: center;
+		letter-spacing: 2px;
+		//.transition;
+		&:before, &:after {
+			content: '';
+			position: absolute;
+			width: $border-width;
+			height: $border-height;
+			border: $border-width/2 solid $border-clr;
+		}
+		&:before {
+			top: -$border-height;
+			left: 0;
+			border-top-color: transparent;
+			border-left-color: transparent;
+		}
+		&:after {
+			top: $ribbon-height;
+			left: $ribbon-width - $border-width;
+			border-right-color: transparent;
+			border-bottom-color: transparent;
+		}
+	}
+	
+}
+
+
+
+//end help here
+
 .recorder {
     height: 60px;
     border: 1px solid rgb(243, 243, 243);
