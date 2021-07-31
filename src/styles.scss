@@ -13,15 +13,19 @@ html, body {
   font-family: "Source Sans Pro",sans-serif;
   font-size: 16px;
   background-color: #Fdfcfa;
+  
 }
+
 html::-webkit-scrollbar-thumb {
   background-color: #646464;
   border-radius: 5px;
 }
+
 html::-webkit-scrollbar {
   height: 5px;
   width: 5px;
 }
+
 .btn {
   cursor: pointer;
 }
@@ -64,8 +68,6 @@ html::-webkit-scrollbar {
   .mat-button-wrapper {
     color: #ffffff;
   }
-
- 
 }
 
 .mat-snack-bar-container{
