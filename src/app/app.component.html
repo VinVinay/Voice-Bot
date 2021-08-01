@@ -7,11 +7,11 @@
     <div class="app-title">
       <div class="listen-body-img">
         <img src='https://clarivate.com/wp-content/uploads/2021/04/Purple_Pictograms_Final_on_White_RGB_51.png' alt="mic-img"/>
-        <span>Innovate using your voice</span>
+        <span>Innovate Using Keyword Intelligence </span>
       </div>
       <div class="innovate-voice">
-        <h1 class="text-center appName"> The Customer's lens </h1>
-          <span class="appname-quote">- We See And Listen Through Our Customers..!!</span>
+        <h1 class="text-center appName"> Analyst’s Dictionary - KeywordIntelligencia </h1>
+          <span class="appname-quote">- We Think Before Customers’ Think..!!</span>
       </div>
     </div>
 
@@ -19,12 +19,12 @@
       <ng-template [ngIf]="!ml.voiceBotReady || !ml.pronoun">
         <app-listen *ngIf="speech.speechSupported" ></app-listen>
       </ng-template>
-      <div>
+      <!-- <div>
         <button class="recorder" (click)="toggleClick($event)" [ngStyle]="{'background-color': speech.listening === true ? 'red' : '#5e33bf'}">
           <i class="bi bi-mic-fill" *ngIf="speech.listening" ></i>
           <i class="bi bi-mic-mute-fill"  *ngIf="!speech.listening" ></i>
         </button>
-      </div>
+      </div> -->
     </div>
 
     <div class="grid container">
@@ -53,7 +53,7 @@
   </div>
 
 <!-- //help -->
-  <div class="card">
+  <!-- <div class="card">
     <div class="image">
     </div>
     <div class="copy">
@@ -68,6 +68,6 @@
     <div class="ribbon">
       I can Understand
     </div>
-  </div>
+  </div> -->
   <!-- ends help -->
 </body>
