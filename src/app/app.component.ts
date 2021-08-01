@@ -90,6 +90,8 @@ export class AppComponent implements OnInit {
     this.excelService.generateExcel(
       selectedData
     );
+    this.speech.synthesizeSpeechFromText("Export completed successfully");
+
   }
 
   public toggleClick(data) {
