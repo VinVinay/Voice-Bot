@@ -12,6 +12,7 @@
 
 ## Technology
 - Angular
+- web speech api, SpeechSynthesis
 
 ## Supported commands:-
 
