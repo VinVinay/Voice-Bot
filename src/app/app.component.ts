@@ -91,7 +91,6 @@ export class AppComponent implements OnInit {
       selectedData
     );
     this.speech.synthesizeSpeechFromText("Export completed successfully");
-
   }
 
   public toggleClick(data) {
